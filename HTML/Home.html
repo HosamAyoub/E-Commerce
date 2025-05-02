@@ -9,11 +9,13 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="../Styles/Home.css" />
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg sticky-top">
+            <div class="container-fluid mx-4">
+                <a class="navbar-brand me-4" href="Home.html"><h1 class="fw-bolder">SHOP.CO</h1></a>
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -26,34 +28,58 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-4 mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Shop </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Accessories</a></li>
+                                <li><a class="dropdown-item" href="#">Care</a></li>
+                                <li><a class="dropdown-item" href="#">Electronics</a></li>
+                                <li><a class="dropdown-item" href="#">Furniture</a></li>
+                                <li><a class="dropdown-item" href="#">Groceries</a></li>
+                                <li><a class="dropdown-item" href="#">Mens</a></li>
+                                <li><a class="dropdown-item" href="#">Vehicles</a></li>
+                                <li><a class="dropdown-item" href="#">Women</a></li>
+                                <!-- <li><hr class="dropdown-divider" /></li> -->
+                                <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <a class="nav-link" href="#">On Sale</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                            <a class="nav-link" href="#">New Arrivals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Brands</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form class="d-flex position-relative me-2" role="search">
+                        <input
+                            class="searchButton form-control me-2 rounded-pill py-2 px-5 align-self-center"
+                            type="search"
+                            placeholder="Search for products..."
+                            aria-label="Search"
+                        />
+                        <button class="btn position-absolute start-0 align-self-center" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </form>
+                    <i class="fa-solid fa-cart-shopping me-2"></i>
+                    <i class="fa-regular fa-circle-user"></i>
                 </div>
             </div>
         </nav>
+        <!-- Main -->
+        <main>
+            <!-- Hero Section -->
+            <img src="../Images/Hero.png" alt="" width="100%" />
+        </main>
     </body>
     <script src="../Scripts/JS/bootstrap.bundle.min.js"></script>
     <script src="../Scripts/JS/all.min.js"></script>
+    <script src="../Scripts/home.js"></script>
 </html>

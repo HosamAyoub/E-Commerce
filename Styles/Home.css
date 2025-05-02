@@ -1,0 +1,32 @@
+:root {
+    --white-color: white;
+    --black-color: black;
+    --backround-color: var(--white-color);
+}
+
+body {
+    background-color: var(--backround-color);
+    height: 200dvh;
+}
+
+/* Navbar */
+
+nav {
+    background-color: var(--white-color);
+}
+
+.searchButton {
+    width: 40vw;
+}
+
+/* @media (prefers-color-scheme: dark) {
+    :root {
+        --backround-color: var(--black-color);
+    }
+}
+
+@media (prefers-color-scheme: white) {
+    :root {
+        --backround-color: var(--white-color);
+    }
+} */
