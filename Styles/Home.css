@@ -82,7 +82,7 @@ article h2 {
 
 /* Card */
 .starsContainer svg {
-  color: var(--yellow-color);
+  /* color: var(--yellow-color); */
   /* font-size: 40px; */
   /* background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
     background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
