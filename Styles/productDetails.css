@@ -1,0 +1,135 @@
+
+#imagesAndDetails{
+    margin: 20px;
+    padding: 10px 20px;
+    display: flex;
+    /* max-height: 500px; */
+}
+
+#images{
+    padding: 0px auto;
+}
+
+#threeImgaes{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    img{
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+#oneImgae{
+    padding: 5px;
+    img{
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+img:hover{
+    border: solid black 1px;
+    cursor: pointer;
+}
+
+#details{
+    padding: 10px 30px;
+    align-content: space-between;
+}
+
+#priceBeforDiscount{
+    color: rgb(216, 220, 221);
+    text-decoration: line-through;
+    margin-left: 20px;
+}
+
+#discountPercentage{
+    background-color: rgb(244, 214, 214);
+    color: red;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+
+
+#controlCart{
+    background-color: rgb(236, 238, 239);
+    border: none;
+    border-radius: 20px;
+    
+    button{
+        border: none;
+    }
+}
+
+#addToCart{
+    border: none;
+    background-color: black;
+    border-radius: 20px; 
+    text-align: center;
+    padding: 5px;
+    /* margin: 5px; */
+    a{
+        text-decoration: none;
+        color:white;
+    }
+         
+}
+
+.selectColor{
+    display: flex;
+    div{
+        margin: 0px 10px;
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 50%;
+    }
+}
+
+#color1{
+    background-color: rgb(122, 91, 91);
+}
+
+#color2{
+    background-color:antiquewhite ;
+}
+
+#color3{
+    background-color: rgb(154, 175, 164);
+}
+
+#color4{
+    background-color: rgb(197, 129, 129);
+}
+
+
+.chooseSize{
+    display: flex;
+    div{
+        padding: 8px 15px;
+        background-color:rgb(224, 225, 227) ;
+        margin: 0 5px;
+        border: none;
+        border-radius: 15px;
+        color: black;
+    }
+}
+#size2{
+    background-color: black;
+    color: white;
+}
+
+#ratingHeadLine{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#review{
+    border: 1px solid;
+    border-radius: 10px;
+    width: 40%;
+    padding: 10px 20px;
+    margin: 10px;
+}
