@@ -81,22 +81,9 @@ article h2 {
 }
 
 /* Card */
-.starsContainer svg {
-  /* color: var(--yellow-color); */
-  /* font-size: 40px; */
-  /* background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-    background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-    background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent; */
-}
-
-.starsContainer .fa {
+/* .starsContainer .fa {
   display: inline;
-  /* margin-left: 15px; */
-}
+} */
 
 .card-body {
   padding-top: 1.2rem;
