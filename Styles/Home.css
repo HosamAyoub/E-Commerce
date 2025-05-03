@@ -1,38 +1,38 @@
 :root {
-    --white-color: white;
-    --black-color: black;
-    --yellow-color: #ffc633;
-    --backround-color: var(--white-color);
+  --white-color: white;
+  --black-color: black;
+  --yellow-color: #ffc633;
+  --backround-color: var(--white-color);
 }
 
 body {
-    background-color: var(--backround-color);
-    height: 1000dvh;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  background-color: var(--backround-color);
+  height: 1000dvh;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /* Navbar */
 
 nav {
-    background-color: var(--white-color);
+  background-color: var(--white-color);
 }
 
 .logo {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .searchButton {
-    width: 40vw;
+  width: 40vw;
 }
 
 /* Main */
-/* Hero */
 main {
-    position: relative;
-    /* height: 100vh; */
+  position: relative;
+  /* height: 100vh; */
 }
+/* Hero */
 
 /* .star1 {
     position: absolute;
@@ -50,29 +50,41 @@ main {
 } */
 
 .brands {
-    /* width: 100%; */
-    /* height: 10rem; */
-    background-color: var(--black-color);
-    color: var(--white-color);
+  /* width: 100%; */
+  /* height: 10rem; */
+  background-color: var(--black-color);
+  color: var(--white-color);
 }
 
 .brands img {
-    width: 13rem;
-    /* height: 8rem; */
+  width: 13em;
+  /* height: 8rem; */
+}
+
+.zara {
+  width: fit-content;
+  height: 2.75rem;
+}
+
+.versace {
+  /* height: 7em !important; */
+  /* width: 10rem; */
+  margin: 1rem 0rem;
+  /* height: 4rem; */
 }
 
 /* Main Section */
 article h2 {
-    color: var(--black-color);
-    font-size: 5rem;
-    font-weight: 800;
+  color: var(--black-color);
+  font-size: 5rem;
+  font-weight: 800;
 }
 
 /* Card */
 .starsContainer svg {
-    color: var(--yellow-color);
-    /* font-size: 40px; */
-    /* background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
+  color: var(--yellow-color);
+  /* font-size: 40px; */
+  /* background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
     background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
     background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
     -webkit-background-clip: text;
@@ -82,30 +94,35 @@ article h2 {
 }
 
 .starsContainer .fa {
-    display: inline;
-    /* margin-left: 15px; */
+  display: inline;
+  /* margin-left: 15px; */
 }
 
 .card-body {
-    padding-top: 1.2rem;
+  padding-top: 1.2rem;
 }
 
 .cardFooter p {
-    font-size: 32px;
-    font-weight: 600;
+  font-size: 32px;
+  font-weight: 600;
 }
+
+.totalRate {
+  color: #00000080;
+}
+
 .cardFooter a {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .cardFooter svg {
-    font-size: 24px;
-    margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .card-body a {
-    text-decoration: none;
-    color: var(--black-color);
+  text-decoration: none;
+  color: var(--black-color);
 }
 
 /* @media (prefers-color-scheme: dark) {
