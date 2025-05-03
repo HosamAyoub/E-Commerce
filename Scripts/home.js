@@ -9,35 +9,32 @@ const GeneralCategories = {
   women: ["tops", "womens-bags", "womens-dresses", "womens-jewellery", "womens-shoes", "womens-watches"],
 };
 
-fetch("https://dummyjson.com/products?limit=0&select=id,title,category,price,rating,images,thumbnail")
-  .then((res) => res.json())
-  .then((data) => {
-    const filteredProducts = data.products.filter((product) => {
-      if (
-        (product.images.length > 2 && GeneralCategories.men.includes(product.category)) ||
-        (product.images.length > 2 && GeneralCategories.women.includes(product.category))
-      )
-        return product;
-    });
-    const cards = document.getElementById("cards");
-    for (const element of filteredProducts) {
-      cards.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-      <a href="#"><img src="${element.thumbnail}" class="card-img-top" alt="${element.title}" /></a>
-      <div class="card-body text-start">
-        <a href=""><h5 class="card-title">${element.title}</h5></a>
-        <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
-        <div class="starsContainer d-flex align-items-center justify-content-between" id="starsContainer">
-          <div class="d-inline-flex">${displayRate(element.rating.toFixed(1))}</div>
-          <div><span class="">${element.rating.toFixed(1)}/</span><span class="totalRate">5</span></div>
-        </div>
-        <div class="cardFooter mx-0 px-0 border-0 outline-0 d-flex justify-content-between align-items-center">
-          <p>${element.price}$</p>
-          <a href="#" class="btn"><i class="fa-solid fa-cart-shopping fa-lg"></i></a>
-        </div>
+var i = 0;
+var showedProducts = 0;
+var clothesProducts = [];
+var filteredProducts = [];
+
+function displayProducts(num, arr, section) {
+  const cards = document.getElementById(section);
+  for (i = showedProducts; i < showedProducts + num && i < arr.length; i++) {
+    cards.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
+    <a href="#"><img src="${arr[i].thumbnail}" class="card-img-top" alt="${arr[i].title}" /></a>
+    <div class="card-body text-start">
+      <a href=""><h5 class="card-title">${arr[i].title}</h5></a>
+      <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
+      <div class="starsContainer d-flex align-items-center justify-content-between" id="starsContainer">
+        <div class="d-flex">${displayRate(arr[i].rating.toFixed(1))}</div>
+        <div><span class="">${arr[i].rating.toFixed(1)}/</span><span class="totalRate">5</span></div>
       </div>
-    </div>`;
-    }
-  });
+      <div class="cardFooter mx-0 px-0 border-0 outline-0 d-flex justify-content-between align-items-center">
+        <p>${arr[i].price}$</p>
+        <a href="#" class="btn"><i class="fa-solid fa-cart-shopping fa-lg"></i></a>
+      </div>
+    </div>
+  </div>`;
+  }
+  showedProducts = i;
+}
 
 function displayRate(rate) {
   let result = "";
@@ -92,3 +89,29 @@ function resetRate() {
     starsArray[i].style.color = "black";
   }
 }
+
+fetch("https://dummyjson.com/products?limit=0&select=id,title,category,price,rating,images,thumbnail")
+  .then((res) => res.json())
+  .then((data) => {
+    clothesProducts = data.products.filter((product) => {
+      if (
+        (product.images.length > 2 && GeneralCategories.men.includes(product.category)) ||
+        (product.images.length > 2 && GeneralCategories.women.includes(product.category))
+      )
+        return product;
+    });
+    filteredProducts = data.products.filter((product) => product.images.length > 2);
+    displayProducts(8, filteredProducts, "topSellingCards");
+    displayProducts(8, filteredProducts, "newArrivalCards");
+  });
+
+const newArrival = document.getElementById("viewAllNewArrival");
+const topSelling = document.getElementById("viewTopSelling");
+newArrival.addEventListener("click", function () {
+  displayProducts(8, filteredProducts, "newArrivalCards");
+  newArrival.style.display = "none";
+});
+topSelling.addEventListener("click", function () {
+  displayProducts(8, filteredProducts, "topSellingCards");
+  topSelling.style.display = "none";
+});
