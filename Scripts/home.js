@@ -1,7 +1,24 @@
-fetch("https://dummyjson.com/products?limit=50&select=id,title,price,rating,images,thumbnail")
+const GeneralCategories = {
+  accessories: ["sports-accessories", "sunglasses"],
+  care: ["fragrances", "skin-care"],
+  electronics: ["laptops", "mobile-accessories", "smartphones", "tablets"],
+  furniture: ["furniture", "home-decoration", "kitchen-accessories"],
+  groceries: ["groceries"],
+  men: ["mens-shirts", "mens-shoes", "mens-watches"],
+  vehicles: ["motorcycle", "vehicle"],
+  women: ["tops", "womens-bags", "womens-dresses", "womens-jewellery", "womens-shoes", "womens-watches"],
+};
+
+fetch("https://dummyjson.com/products?limit=0&select=id,title,category,price,rating,images,thumbnail")
   .then((res) => res.json())
   .then((data) => {
-    const filteredProducts = data.products.filter((product) => product.images.length > 2);
+    const filteredProducts = data.products.filter((product) => {
+      if (
+        (product.images.length > 2 && GeneralCategories.men.includes(product.category)) ||
+        (product.images.length > 2 && GeneralCategories.women.includes(product.category))
+      )
+        return product;
+    });
     const cards = document.getElementById("cards");
     for (const element of filteredProducts) {
       cards.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
@@ -75,16 +92,3 @@ function resetRate() {
     starsArray[i].style.color = "black";
   }
 }
-
-const x = [];
-
-const GeneralCategories = {
-  accessories: ["sports-accessories", "sunglasses"],
-  care: ["fragrances", "skin-care"],
-  electronics: ["laptops", "mobile-accessories", "smartphones", "tablets"],
-  furniture: ["furniture", "home-decoration", "kitchen-accessories"],
-  groceries: ["groceries"],
-  men: ["mens-shirts", "mens-shoes", "mens-watches"],
-  vehicles: ["motorcycle", "vehicle"],
-  women: ["tops", "womens-bags", "womens-dresses", "womens-jewellery", "womens-shoes", "womens-watches"],
-};

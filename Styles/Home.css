@@ -33,7 +33,31 @@ main {
   /* height: 100vh; */
 }
 /* Hero */
+.heroContainer {
+  position: relative;
+}
 
+.heroSlogan {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+}
+
+.slogan {
+  font-size: 6vw;
+  font-weight: 800;
+  color: black;
+}
+
+.slogan:nth-child(3) {
+  margin-bottom: 3vh;
+}
+
+.heroContainer p {
+  color: #00000080;
+  padding-left: 0.3vw;
+  line-height: 1.1vh;
+}
 /* .star1 {
     position: absolute;
     width: fit-content;
