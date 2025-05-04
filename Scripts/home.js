@@ -15,18 +15,14 @@ var clothesProducts = [];
 var products = [];
 
 function displayProducts(num, arr, section) {
-  // console.log(arr[0]["title"]);
-
   const cards = document.getElementById(section);
   for (i = showedProducts; i < showedProducts + num && i < arr.length; i++) {
-    // console.log(arr[i]["title"]);
-
     cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-    <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo(this)" data-product-id="${i}" data-product='${JSON.stringify(
-      arr[i]
-    )}'><img src="${arr[i].thumbnail}" class="card-img-top" alt="${arr[i].title}" style="background-color: #f0eeed; border-radius: 15px;"/></a>
+    <a id="clickedProduct" href="#" onclick="passProductInfo('${i}')"><img src="${arr[i].thumbnail}" class="card-img-top" alt="${
+      arr[i].title
+    }" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
-      <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo(${arr[i]})"><h5 class="card-title">${arr[i].title}</h5></a>
+      <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo(${i})"><h5 class="card-title">${arr[i].title}</h5></a>
       <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
       <div class="starsContainer d-flex align-items-center justify-content-between" id="starsContainer">
         <div class="d-flex">${displayRate(arr[i].rating.toFixed(1))}</div>
@@ -164,19 +160,7 @@ function showAddToCartDialog(productName) {
 }
 
 function passProductInfo(element) {
-  // console.log(element.title);
-  // console.log(element["title"]);
-  // console.log(element[title]);
-  // let temp = JSON.parse(element);
-  // console.log(temp);
-  // for (const key in element) {
-  //   console.log(element.key);
-  // }
-  // localStorage.setItem("clickedProductt", JSON.stringify(element));
-  // let x = JSON.parse(localStorage.getItem("clickedProductt"));
-  // console.log(x);
-  // const productId = clickedElement.dataset.productId;
-  // const product = JSON.parse(clickedElement.dataset.product);
-  console.log(products[i]);
-  localStorage.setItem("clickedProduct", JSON.stringify(products[i]));
+  console.log(element);
+  console.log(products[element]);
+  localStorage.setItem("clickedProduct", JSON.stringify(products[element]));
 }

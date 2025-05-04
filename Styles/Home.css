@@ -9,7 +9,7 @@
 
 body {
   background-color: var(--backround-color);
-  height: 1000dvh;
+  /* height: 1000dvh; */
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -45,7 +45,6 @@ nav {
 }
 
 .searchButton:focus {
-  border:
   box-shadow: none;
 }
 
@@ -93,21 +92,16 @@ main {
 }
 
 .heroSlogan > p {
+  font-size: 1.2vw;
   padding-left: 0.3vw;
   line-height: min(0.7vw, 2.5rem);
 }
 
 .heroSlogan > button {
-  font-size: 1vw;
+  font-size: 1.3vw;
   padding: 1vw 5vw;
   margin: 1vw 0vw;
 }
-
-/* .heroInfo div {
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-} */
 
 .heroInfo {
   width: 40vw;
@@ -262,4 +256,65 @@ article h2 {
   z-index: 9999;
   font-weight: bold;
   transition: opacity 0.3s ease;
+}
+
+/* Footer */
+footer {
+  background-color: #e1e3e6;
+}
+
+#offer {
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+}
+
+#toEmail {
+  div {
+    background-color: white;
+    margin: 0.5rem;
+    border-radius: 15px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    p {
+      padding: 5px 0;
+      text-align: center;
+    }
+  }
+
+  i {
+    margin: 15px;
+  }
+
+  input {
+    border: none;
+    margin-right: 10px;
+  }
+}
+
+footer {
+  margin-top: 20vh;
+}
+footer svg {
+  color: var(--black-color);
+}
+.footerHero {
+  /* margin-top: 20vh; */
+  width: 85vw;
+  padding: 4vw 3vw !important;
+}
+
+.footerHero > div > div > h1 {
+  font-weight: 800;
+}
+
+.footericon {
+  margin: 10px 8px 0px 15px;
+}
+
+.form-control:focus {
+  border-color: var(--black-color);
+  box-shadow: none;
 }

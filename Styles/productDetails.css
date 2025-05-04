@@ -2,6 +2,8 @@
   --white-color: white;
   --black-color: black;
   --yellow-color: #ffc633;
+  --gray-color1: #f0f0f0;
+  --gray-color2: #909090;
   --backround-color: var(--white-color);
 }
 /* Navbar */
@@ -31,6 +33,10 @@ nav {
   font-size: 1.2vw;
   color: var(--gray-color2);
   background-color: var(--gray-color1);
+}
+
+.searchButton:focus {
+  box-shadow: none;
 }
 
 nav form button svg {
