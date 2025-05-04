@@ -1,17 +1,20 @@
 let productIndex = 0;
+let productsList = JSON.parse(localStorage.getItem("products"));
+let product = JSON.parse(localStorage.getItem("clickedProduct"));
+// console.log(products);
 
 async function displayItem() {
   let dataResponse = await fetch("https://dummyjson.com/products?limit=0");
   data = (await dataResponse.json()).products;
-  console.log(data);
+  //   console.log(data);
 
   if (data) {
     productsList = data.filter((item) => item.images.length >= 3);
   }
-  console.log(productsList);
+  //   console.log(productsList);
 
   if (productsList) {
-    console.log(productsList[productIndex]);
+    // console.log(productsList[productIndex]);
 
     let content = `
         <!-- Breadcrumb -->
@@ -31,12 +34,12 @@ async function displayItem() {
                 <div class="col-5" id="images">
                     <div class="row">
                         <div id="threeImgaes" class="col-3">
-                            <img src="${productsList[productIndex].images[0]}" class="img-fluid rounded" alt="0.png">
-                            <img src="${productsList[productIndex].images[1]}" class="img-fluid rounded" alt="0.png">
-                            <img src="${productsList[productIndex].images[2]}" class="img-fluid rounded" alt="0.png">
+                            <img src="${productsList[productIndex].images[0]}" class="mainImage img-fluid rounded" alt="0.png">
+                            <img src="${productsList[productIndex].images[1]}" class="mainImage img-fluid rounded" alt="0.png">
+                            <img src="${productsList[productIndex].images[2]}" class="mainImage img-fluid rounded" alt="0.png">
                         </div>
                         <div id="oneImgae" class="col-9">
-                            <img src="${productsList[productIndex].images[0]}" class="img-fluid rounded" alt="0.png">
+                            <img src="${productsList[productIndex].images[0]}" class="mainImage img-fluid rounded" alt="0.png">
                         </div>
                     </div>  
                 </div>
@@ -136,96 +139,13 @@ async function displayItem() {
 
     content += `
                 </div>
-            </section>
-
-
-            
-
-            <!-- Footer -->
-            <br><br><br><br><br>
-            <footer class="mt-5">
-
-                    <div class="position-relative">
-                        <div class="position-absolute top-0 start-50 translate-middle bg-black" id="offer">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h1 class="text-white">STAY UPTO DATE ABOUT OUR LATEST OFFERS</h1>
-                                </div>
-                                <div class="col-5" id="toEmail">
-                                    <div class="d-flex">
-                                        <i class="fa-solid fa-envelope"></i>
-                                        <input type="email" class="form-control" placeholder="Enter your email address">
-                                    </div>
-                                    <div><a href="#"><p>Subscribe to Newsletter</p></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row pt-5 m-5">
-                        <div class="col-3 pt-5 mt-5">
-                            <h1>SHOP.CO</h1>
-                            <p>
-                                We have all products that suits your need.
-                            </p>
-                            <div>
-                                <a href="#"><i class="ms-2 fa-brands fa-twitter"></i></a>
-                                <a href="#"><i class="ms-2 fa-brands fa-facebook"></i></a>
-                                <a href="#"><i class="ms-2 fa-brands fa-instagram"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-3 pt-5 mt-5">
-                            <h5>COMPANY</h5>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>About</p></a>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Features</p></a>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Works</p></a>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Career</p></a>
-                        </div>
-                        <div class="col-3 pt-5 mt-5">
-                            <h5>HELP</h5>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Customers Support</p></a>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Delivery Details</p></a>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Terms & Conditions</p></a>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Privacy Poicy</p></a>
-                        </div>
-                        <div class="col-3 pt-5 mt-5">
-                            <h5>FAQ</h5>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Acount</p></a>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Mange Deliveries</p></a>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Orders</p></a>
-                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Payments</p></a>
-                        </div>
-                    </div>
-
-
-                    
-
-                    <div class="mt-3 p-4">
-                        <hr>
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <p>Shop.Co &copy; 2000-2025. All Rights Reserved</p>
-                            </div>
-                            <div>
-                                
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                    
-                </footer>
-        
-
-
-        `;
+            </section>`;
 
     document.getElementById("content").innerHTML = content;
   }
 }
 
-displayItem();
+// displayItem();
 
 /******************************  Rating System   ******************************************/
 

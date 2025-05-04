@@ -12,17 +12,21 @@ const GeneralCategories = {
 var i = 0;
 var showedProducts = 0;
 var clothesProducts = [];
-var filteredProducts = [];
+var products = [];
 
 function displayProducts(num, arr, section) {
+  // console.log(arr[0]["title"]);
+
   const cards = document.getElementById(section);
   for (i = showedProducts; i < showedProducts + num && i < arr.length; i++) {
+    // console.log(arr[i]["title"]);
+
     cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-    <a href="../HTML/productDetails.html"><img src="${arr[i].thumbnail}" class="card-img-top" alt="${
-      arr[i].title
-    }" style="background-color: #f0eeed; border-radius: 15px;"/></a>
+    <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo(this)" data-product-id="${i}" data-product='${JSON.stringify(
+      arr[i]
+    )}'><img src="${arr[i].thumbnail}" class="card-img-top" alt="${arr[i].title}" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
-      <a href=""><h5 class="card-title">${arr[i].title}</h5></a>
+      <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo(${arr[i]})"><h5 class="card-title">${arr[i].title}</h5></a>
       <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
       <div class="starsContainer d-flex align-items-center justify-content-between" id="starsContainer">
         <div class="d-flex">${displayRate(arr[i].rating.toFixed(1))}</div>
@@ -40,7 +44,7 @@ function displayProducts(num, arr, section) {
   </div>`;
   }
 
-  document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+  document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
     btn.addEventListener("click", function () {
       const item = {
         id: this.dataset.id,
@@ -48,12 +52,12 @@ function displayProducts(num, arr, section) {
         price: parseFloat(this.dataset.price),
         image: this.dataset.image,
         discount: parseFloat(this.dataset.discount) || 0,
-        quantity: 1
+        quantity: 1,
       };
 
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      const existingItem = cart.find(i => i.id === item.id);
+      const existingItem = cart.find((i) => i.id === item.id);
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
@@ -68,8 +72,6 @@ function displayProducts(num, arr, section) {
   showedProducts = i;
 }
 
-
-  
 function displayRate(rate) {
   let result = "";
   let i = 0;
@@ -124,7 +126,7 @@ function resetRate() {
   }
 }
 
-fetch("https://dummyjson.com/products?limit=0&select=id,title,category,price,rating,images,thumbnail,discountPercentage")
+fetch("https://dummyjson.com/products?limit=0")
   .then((res) => res.json())
   .then((data) => {
     clothesProducts = data.products.filter((product) => {
@@ -134,19 +136,20 @@ fetch("https://dummyjson.com/products?limit=0&select=id,title,category,price,rat
       )
         return product;
     });
-    filteredProducts = data.products.filter((product) => product.images.length > 2);
-    displayProducts(8, filteredProducts, "topSellingCards");
-    displayProducts(8, filteredProducts, "newArrivalCards");
+    products = data.products.filter((product) => product.images.length > 2);
+    displayProducts(8, products, "topSellingCards");
+    displayProducts(8, products, "newArrivalCards");
+    localStorage.setItem("products", JSON.stringify(products));
   });
 
 const newArrival = document.getElementById("viewAllNewArrival");
 const topSelling = document.getElementById("viewTopSelling");
 newArrival.addEventListener("click", function () {
-  displayProducts(8, filteredProducts, "newArrivalCards");
+  displayProducts(8, products, "newArrivalCards");
   newArrival.style.display = "none";
 });
 topSelling.addEventListener("click", function () {
-  displayProducts(8, filteredProducts, "topSellingCards");
+  displayProducts(8, products, "topSellingCards");
   topSelling.style.display = "none";
 });
 
@@ -158,4 +161,22 @@ function showAddToCartDialog(productName) {
   setTimeout(() => {
     dialog.style.display = "none";
   }, 3000);
+}
+
+function passProductInfo(element) {
+  // console.log(element.title);
+  // console.log(element["title"]);
+  // console.log(element[title]);
+  // let temp = JSON.parse(element);
+  // console.log(temp);
+  // for (const key in element) {
+  //   console.log(element.key);
+  // }
+  // localStorage.setItem("clickedProductt", JSON.stringify(element));
+  // let x = JSON.parse(localStorage.getItem("clickedProductt"));
+  // console.log(x);
+  // const productId = clickedElement.dataset.productId;
+  // const product = JSON.parse(clickedElement.dataset.product);
+  console.log(products[i]);
+  localStorage.setItem("clickedProduct", JSON.stringify(products[i]));
 }

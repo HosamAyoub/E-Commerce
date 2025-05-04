@@ -44,6 +44,11 @@ nav {
   background-color: var(--gray-color1);
 }
 
+.searchButton:focus {
+  border:
+  box-shadow: none;
+}
+
 nav form button svg {
   font-size: 1.2vw;
   color: var(--gray-color2);
@@ -192,6 +197,13 @@ article h2 {
 
 .card-body {
   padding-top: 1.2rem;
+}
+
+.card-title {
+  /* text-align: start;
+  text-decoration: none;
+  color: var(--black-color);
+  margin: 1vh 0 0 0 !important; */
 }
 
 .cardFooter p {
