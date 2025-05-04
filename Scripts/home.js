@@ -22,6 +22,8 @@ fetch("https://dummyjson.com/products?limit=50&select=id,title,price,rating,imag
     }
   });
 
+
+  
 function displayRate(rate) {
   let result = "";
   let i = 0;
