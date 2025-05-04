@@ -30,11 +30,41 @@ function displayProducts(num, arr, section) {
       </div>
       <div class="cardFooter mx-0 px-0 border-0 outline-0 d-flex justify-content-between align-items-center">
         <p>${arr[i].price}$</p>
-        <a href="#" class="btn"><i class="fa-solid fa-cart-shopping fa-lg"></i></a>
+        <button class="add-to-cart-btn border-0 bg-transparent" data-id="${arr[i].id}"
+              data-title="${arr[i].title}" data-price="${arr[i].price}"
+              data-image="${arr[i].images[0]}" data-discount="${arr[i].discountPercentage}">
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+        </button>
       </div>
     </div>
   </div>`;
   }
+
+  document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+      const item = {
+        id: this.dataset.id,
+        title: this.dataset.title,
+        price: parseFloat(this.dataset.price),
+        image: this.dataset.image,
+        discount: parseFloat(this.dataset.discount) || 0,
+        quantity: 1
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      const existingItem = cart.find(i => i.id === item.id);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push(item);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      showAddToCartDialog(item.title);
+    });
+  });
+
   showedProducts = i;
 }
 
@@ -94,7 +124,7 @@ function resetRate() {
   }
 }
 
-fetch("https://dummyjson.com/products?limit=0&select=id,title,category,price,rating,images,thumbnail")
+fetch("https://dummyjson.com/products?limit=0&select=id,title,category,price,rating,images,thumbnail,discountPercentage")
   .then((res) => res.json())
   .then((data) => {
     clothesProducts = data.products.filter((product) => {
@@ -119,3 +149,13 @@ topSelling.addEventListener("click", function () {
   displayProducts(8, filteredProducts, "topSellingCards");
   topSelling.style.display = "none";
 });
+
+function showAddToCartDialog(productName) {
+  const dialog = document.getElementById("cart-dialog");
+  dialog.textContent = `"${productName}" has been added to your cart`;
+  dialog.style.display = "block";
+
+  setTimeout(() => {
+    dialog.style.display = "none";
+  }, 3000);
+}
