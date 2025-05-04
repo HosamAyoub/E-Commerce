@@ -58,6 +58,16 @@
             </nav>
 
             <div id="content">
+                    <!-- Breadcrumb -->
+                <!-- <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item"><a href="#"></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"></li>
+                    </ol>
+                </nav> -->
+
                     <!-- Images & Details Section -->
                 <!-- <section class="row" id="imagesAndDetails">
                 <div class="col-6" id="images">
@@ -106,42 +116,142 @@
                     </div>
                     
                     <hr>
-                    <div id="cartItems">
-                        <div class="row">
-                            <div class="col-2"id="controlCart">
-                                <button type="button" class="btn float-start" id="less"><b>-</b></button>
-                                <span class="ps-2">1</span>
-                                <button type="button" class="btn float-end" id="less"><b>+</b></button>
+
+                    <div class="d-flex">
+                            <div class="quantity-control">
+                                <button type="button">−</button>
+                                <span>1</span>
+                                <button type="button">+</button>
                             </div>
-                            <div class="col-1"></div>
-                            <div class="col-8" id="addToCart">
+
+                            <div id="addToCart">
                                 <a href="#" target="_blank">Add To Cart</a>
                             </div>
-                        </div>
                     </div>
 
                 </div>
+
+
                 </section>   -->
            
            
                     <!-- Reviews -->
                     <!-- <section id="reviews">
-                        <h3 class="mx-auto mt-4">Raing & Reviews</h3>
-                        <div id="review">
-                            <div>
-                                <h4>rating</h4>
-                                <i class="fa-solid fa-ellipsis float-end"></i>
+
+                        <div class="row d-flex mx-2">
+                            <div class="col-4 my-2" id="Product_Details">
+                                <a href="#"><h5>Product Details</h5></a>
                             </div>
-                            <div class="d-flex">
-                                <h4>Rauth</h4>
-                                <i class="fa-solid fa-circle-check ms-2 mt-2" style="color: #3fa654;"></i>
+                            <div class="col-4 my-2" id="Rating_And_Reviews">
+                                <a href="#"><h5>Raing & Reviews</h5></a>
                             </div>
-                            <p></p>
-                            <p class="mt-3"></p>
+                            <div class="col-4 my-2" id="FAQs">
+                                <a href="#"><h5>FAQs</h5></a>
+                            </div>
                         </div>
-                    </section> 
-             -->
-            
+
+                        <h5 class="m-4">All Reviews</h5>
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div id="review">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex my-2">${displayRate(review.rating)}</div>
+                                        <i class="fa-solid fa-ellipsis"></i>
+                                    </div>
+                                    <div class="d-flex">
+                                        <h4>${review.reviewerName}</h4>
+                                        <i class="fa-solid fa-circle-check ms-2 mt-2" style="color: #3fa654;"></i>
+                                    </div>
+                                    <p>${review.comment}</p>
+                                    <p class="mt-3">${review.date}</p>
+                                </div>
+                            </div>
+                        </div> 
+                        
+                    </section>   -->
+               
+
+
+
+                   <!-- Footer -->
+                <!-- <footer class="mt-5">
+
+                    <div class="position-relative">
+                        <div class="position-absolute top-0 start-50 translate-middle bg-black" id="offer">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h1 class="text-white">STAY UPTO DATE ABOUT OUR LATEST OFFERS</h1>
+                                </div>
+                                <div class="col-5" id="toEmail">
+                                    <div class="d-flex">
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <input type="email" class="form-control" placeholder="Enter your email address">
+                                    </div>
+                                    <div><a href="#"><p>Subscribe to Newsletter</p></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row pt-5 m-5">
+                        <div class="col-3 pt-5 mt-5">
+                            <h1>SHOP.CO</h1>
+                            <p>
+                                We have all products that suits your need.
+                            </p>
+                            <div>
+                                <a href="#"><i class="ms-2 fa-brands fa-twitter"></i></a>
+                                <a href="#"><i class="ms-2 fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="ms-2 fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-3 pt-5 mt-5">
+                            <h5>COMPANY</h5>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>About</p></a>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Features</p></a>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Works</p></a>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Career</p></a>
+                        </div>
+                        <div class="col-3 pt-5 mt-5">
+                            <h5>HELP</h5>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Customers Support</p></a>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Delivery Details</p></a>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Terms & Conditions</p></a>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Privacy Poicy</p></a>
+                        </div>
+                        <div class="col-3 pt-5 mt-5">
+                            <h5>FAQ</h5>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Acount</p></a>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Mange Deliveries</p></a>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Orders</p></a>
+                            <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112);"><p>Payments</p></a>
+                        </div>
+                    </div>
+
+
+                    
+
+                    <div class="mt-3 p-4">
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <p>Shop.Co &copy; 2000-2025. All Rights Reserved</p>
+                            </div>
+                            <div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    
+                </footer>
+         -->
+
+
             
              
             </div>
