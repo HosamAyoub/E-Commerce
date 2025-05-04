@@ -17,8 +17,8 @@ var filteredProducts = [];
 function displayProducts(num, arr, section) {
   const cards = document.getElementById(section);
   for (i = showedProducts; i < showedProducts + num && i < arr.length; i++) {
-    cards.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-    <a href="#"><img src="${arr[i].thumbnail}" class="card-img-top" alt="${
+    cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
+    <a href="../HTML/productDetails.html"><img src="${arr[i].thumbnail}" class="card-img-top" alt="${
       arr[i].title
     }" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
