@@ -22,7 +22,7 @@ function displayProducts(num, arr, section) {
       arr[i].title
     }" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
-      <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo(${i})"><h5 class="card-title">${arr[i].title}</h5></a>
+      <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><h5 class="card-title">${arr[i].title}</h5></a>
       <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
       <div class="starsContainer d-flex align-items-center justify-content-between" id="starsContainer">
         <div class="d-flex">${displayRate(arr[i].rating.toFixed(1))}</div>
