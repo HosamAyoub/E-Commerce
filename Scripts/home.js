@@ -18,7 +18,7 @@ function displayProducts(num, arr, section) {
   const cards = document.getElementById(section);
   for (i = showedProducts; i < showedProducts + num && i < arr.length; i++) {
     cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-    <a id="clickedProduct" href="#" onclick="passProductInfo('${i}')"><img src="${arr[i].thumbnail}" class="card-img-top" alt="${
+    <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><img src="${arr[i].thumbnail}" class="card-img-top" alt="${
       arr[i].title
     }" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
