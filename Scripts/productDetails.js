@@ -1,28 +1,23 @@
 let productIndex = 0;
 
 async function displayItem() {
-    let dataResponse = await fetch('https://dummyjson.com/products?limit=0');
-    data = (await dataResponse.json()).products;
-    console.log(data);
+  let dataResponse = await fetch("https://dummyjson.com/products?limit=0");
+  data = (await dataResponse.json()).products;
+  console.log(data);
 
-    if (data) {
-        productsList = data.filter(item => item.images.length >= 3);
+  if (data) {
+    productsList = data.filter((item) => item.images.length >= 3);
+  }
+  console.log(productsList);
 
-    }
-    console.log(productsList);
+  if (productsList) {
+    console.log(productsList[productIndex]);
 
-
-
-
-
-    if (productsList) {
-        console.log(productsList[productIndex]);
-
-        let content = `
+    let content = `
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="my-3">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: black">Home</a></li>
+                <li class="breadcrumb-item"><a href="Home.html" style="text-decoration: none; color: black">Home</a></li>
                 <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: black">Shop</a></li>
                 <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: black">${productsList[productIndex].category}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">${productsList[productIndex].title}</li>
@@ -50,7 +45,7 @@ async function displayItem() {
                     <h1>${productsList[productIndex].title}</h1>
                     <div class="d-flex my-2">${displayRate(productsList[productIndex].rating)}</div>
                     <div class="d-flex">
-                        <h4>${(productsList[productIndex].price) * (1 - ((productsList[productIndex].discountPercentage) / 100))}</h4>
+                        <h4>${productsList[productIndex].price * (1 - productsList[productIndex].discountPercentage / 100)}</h4>
                         <h4 id="priceBeforDiscount">${productsList[productIndex].price}</h4>
                         <h5 id="discountPercentage">${productsList[productIndex].discountPercentage}%</h5>   
                     </div>   
@@ -119,10 +114,9 @@ async function displayItem() {
                     
         `;
 
-        
-        let reviewsList = productsList[productIndex].reviews;
-        reviewsList.forEach(review => {
-            content += `
+    let reviewsList = productsList[productIndex].reviews;
+    reviewsList.forEach((review) => {
+      content += `
                 <div class="col-6">
                     <div id="review">
                         <div class="d-flex justify-content-between">
@@ -138,9 +132,9 @@ async function displayItem() {
                     </div>
                 </div>
             `;
-        });
+    });
 
-        content += `
+    content += `
                 </div>
             </section>
 
@@ -225,32 +219,27 @@ async function displayItem() {
         
 
 
-        `
+        `;
 
-
-
-
-        document.getElementById("content").innerHTML = content;
-    }
-
+    document.getElementById("content").innerHTML = content;
+  }
 }
 
 displayItem();
 
-
 /******************************  Rating System   ******************************************/
 
 function displayRate(rate) {
-    let result = "";
-    let i = 0;
-    // Full stars
-    for (i = 0; i < Math.floor(rate); i++) {
-        result += `<i class="fa-solid fa-star text-warning"></i>`;
-    }
+  let result = "";
+  let i = 0;
+  // Full stars
+  for (i = 0; i < Math.floor(rate); i++) {
+    result += `<i class="fa-solid fa-star text-warning"></i>`;
+  }
 
-    // trimming star
-    if (rate % 1 !== 0) {
-        result += `
+  // trimming star
+  if (rate % 1 !== 0) {
+    result += `
             <span class="half-star" style="
               display: inline-block;
               position: relative;
@@ -270,26 +259,26 @@ function displayRate(rate) {
                 outline: none;
               "></i>
             </span>`;
-        for (i += 1; i < 5; i++) {
-            result += `<i class="fa-solid fa-star text-black"></i>`;
-        }
-    } else {
-        for (; i < 5; i++) {
-            result += `<i class="fa-solid fa-star text-black"></i>`;
-        }
+    for (i += 1; i < 5; i++) {
+      result += `<i class="fa-solid fa-star text-black"></i>`;
     }
+  } else {
+    for (; i < 5; i++) {
+      result += `<i class="fa-solid fa-star text-black"></i>`;
+    }
+  }
 
-    return result;
+  return result;
 }
 
 function hideRate(rate) {
-    for (let i = 0; i < rate; i++) {
-        starsArray[i].style.color = "black";
-    }
+  for (let i = 0; i < rate; i++) {
+    starsArray[i].style.color = "black";
+  }
 }
 
 function resetRate() {
-    for (let i = 0; i < 5; i++) {
-        starsArray[i].style.color = "black";
-    }
+  for (let i = 0; i < 5; i++) {
+    starsArray[i].style.color = "black";
+  }
 }
