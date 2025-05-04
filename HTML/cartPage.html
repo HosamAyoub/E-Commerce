@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - Shop.co</title>
+  <link rel="stylesheet" href="../Styles/CSS/bootstrap.min.css" />
+  <link rel="stylesheet" href="../Styles/CSS/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../Styles/cart.css" />
+</head>
+<body>
+  <!-- Top black bar -->
+  <div id="topBar">
+    Sign up and get 20% off to your first order.
+    <button id="topBarClose" type="button">Sign Up Now</button>
+    <button id="topBarDismiss" type="button" aria-label="Close top bar"><i class="fas fa-times"></i></button>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid mx-4">
+      <a class="navbar-brand me-4" href="Home.html"><h1 class="logo">SHOP.CO</h1></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-4 mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="Home.html" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Shop </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Accessories</a></li>
+              <li><a class="dropdown-item" href="#">Care</a></li>
+              <li><a class="dropdown-item" href="#">Electronics</a></li>
+              <li><a class="dropdown-item" href="#">Furniture</a></li>
+              <li><a class="dropdown-item" href="#">Groceries</a></li>
+              <li><a class="dropdown-item" href="#">Mens</a></li>
+              <li><a class="dropdown-item" href="#">Vehicles</a></li>
+              <li><a class="dropdown-item" href="#">Women</a></li>
+              <!-- <li><hr class="dropdown-divider" /></li> -->
+              <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">On Sale</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">New Arrivals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Brands</a>
+          </li>
+        </ul>
+        <form class="d-flex position-relative me-2" role="search">
+          <input
+            class="searchButton form-control me-2 rounded-pill py-2 px-5 align-self-center"
+            type="search"
+            placeholder="Search for products..."
+            aria-label="Search"
+          />
+          <button class="btn position-absolute start-0 align-self-center" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <a href="cartPage.html" class="btn border-0 bg-transparent m-3 cursor-pointer">
+          <i class="fa-solid fa-cart-shopping fa-lg"></i>
+        </a>          
+        <i class="fa-regular fa-circle-user fa-lg"></i>
+      </div>
+    </div>
+  </nav>
+
+   <!-- Breadcrumb -->
+   <nav aria-label="breadcrumb" class="breadcrumb">
+    <ol class="breadcrumb mb-0 p-0">
+      <li class="breadcrumb-item"><a href="Home.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cart</li>
+    </ol>
+  </nav>
+
+  <h1 class="main-title">YOUR CART</h1>
+
+  <div class="container py-5">
+    <!-- Cart Section -->
+    <div class="row">
+      <div class="col-lg-8">
+        <div id="cart-items">
+          <!-- Cart items will be here -->
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="order-summary">
+          <h5>Order Summary</h5>
+          <ul class="list-unstyled">
+            <li class="d-flex justify-content-between"><span>Subtotal</span> <span id="subtotal">$0</span></li>
+            <li class="d-flex justify-content-between"><span>Discount</span> <span id="discount" style="color: red;">-$0</span></li>
+            <li class="d-flex justify-content-between"><span>Delivery Fee</span> <span id="delivery">$0</span></li>
+          </ul>
+          <hr />
+          <div class="d-flex justify-content-between fw-bold">
+            <span>Total</span> <span id="total">$0</span>
+          </div>
+          <!-- <div class="input-group my-3">
+            <input type="text" class="form-control" placeholder="Add promo code" />
+            <button class="btn btn-dark">Apply</button>
+          </div> -->
+          <form class="promo-form" onsubmit="event.preventDefault()">
+            <label for="promoCode" class="visually-hidden">Add promo code</label>
+            <input id="promoCode" class="promo-input" type="text" placeholder="Add promo code" />
+            <button type="submit" class="promo-btn">Apply</button>
+          </form>
+          <button class="checkout-btn" data-bs-toggle="modal" data-bs-target="#checkoutModal">Go to Checkout<i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="checkout-form">
+            <div class="modal-header">
+              <h5 class="modal-title" id="checkoutModalLabel">Checkout Information</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="fullname" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullname" required />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" required />
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Shipping Address</label>
+                <textarea class="form-control" id="address" rows="3" required></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-dark">Confirm Order</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-section mt-5 text-center">
+      <h2>STAY UPTO DATE ABOUT<br />OUR LATEST OFFERS</h2>
+      <form onsubmit="event.preventDefault()" class="w-100 d-flex flex-wrap flex-md-nowrap gap-2 justify-content-center justify-content-md-start">
+        <label for="emailNewsletter" class="visually-hidden">Enter your email address</label>
+        <input id="emailNewsletter" type="email" placeholder="Enter your email address" required />
+        <button type="submit">Subscribe to Newsletter</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3>SHOP.CO</h3>
+        <p>We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Works</a></li>
+            <li><a href="#">Career</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">Customer Support</a></li>
+            <li><a href="#">Delivery Details</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>FAQ</h4>
+          <ul>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Manage Deliveries</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Payments</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Free eBooks</a></li>
+            <li><a href="#">Development Tutorial</a></li>
+            <li><a href="#">How to - Blog</a></li>
+            <li><a href="#">Youtube Playlist</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container d-flex flex-column flex-sm-row justify-content-between align-items-center mt-4">
+      <p>Shopco © 2000-2023, All Rights Reserved</p>
+      <div class="payment-logos d-flex align-items-center">
+        <img src="https://placehold.co/40x24?text=Visa" alt="Visa credit card logo" />
+        <img src="https://placehold.co/40x24?text=Mastercard" alt="Mastercard credit card logo" />
+        <img src="https://placehold.co/40x24?text=PayPal" alt="PayPal payment logo" />
+        <img src="https://placehold.co/40x24?text=Apple+Pay" alt="Apple Pay payment logo" />
+        <img src="https://placehold.co/40x24?text=Google+Pay" alt="Google Pay payment logo" />
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dialog for Checkout Confirmation -->
+  <div id="confirm-dialog"></div>
+
+  <script src="../Scripts/JS/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/JS/all.min.js"></script>
+  <script src="../Scripts/cart.js"></script>
+</body>
+</html>

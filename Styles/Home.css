@@ -236,3 +236,18 @@ article h2 {
         --backround-color: var(--white-color);
     }
 } */
+
+#cart-dialog {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #000;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
