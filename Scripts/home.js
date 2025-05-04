@@ -38,6 +38,8 @@ function displayProducts(num, arr, section) {
   showedProducts = i;
 }
 
+
+  
 function displayRate(rate) {
   let result = "";
   let i = 0;
