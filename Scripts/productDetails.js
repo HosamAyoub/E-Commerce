@@ -1,21 +1,13 @@
 let productIndex = 0;
 let productsList = JSON.parse(localStorage.getItem("products"));
 let product = JSON.parse(localStorage.getItem("clickedProduct"));
-// console.log(products);
+console.log(product);
 
-async function displayItem() {
-  let dataResponse = await fetch("https://dummyjson.com/products?limit=0");
-  data = (await dataResponse.json()).products;
-  //   console.log(data);
 
-  if (data) {
-    productsList = data.filter((item) => item.images.length >= 3);
-  }
-  //   console.log(productsList);
 
+function displayItem() {
+  
   if (productsList) {
-    // console.log(productsList[productIndex]);
-
     let content = `
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="my-3">
@@ -145,7 +137,7 @@ async function displayItem() {
   }
 }
 
-// displayItem();
+displayItem();
 
 /******************************  Rating System   ******************************************/
 

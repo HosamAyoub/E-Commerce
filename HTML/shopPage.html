@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../Styles/CSS/bootstrap.min.css" />
+  <link rel="stylesheet" href="../Styles/CSS/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../Styles/shopPage.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <title>Product Details</title>
+ 
+
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid text-center">
+      <a class="navbar-brand" href="Home.html">
+        <h1 class="logo">SHOP.CO</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Shop </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" onclick="passCategory('men')">Men</a></li>
+              <li><a class="dropdown-item" href="#" onclick="passCategory('women')">Women</a></li>
+              <li><a class="dropdown-item" href="#" onclick="passCategory('accessories')">Accessories</a></li>
+              <li><a class="dropdown-item" href="#" onclick="passCategory('care')">Care</a></li>
+              <li><a class="dropdown-item" href="#" onclick="passCategory('electronics')">Electronics</a></li>
+              <li><a class="dropdown-item" href="#" onclick="passCategory('furniture')">Furniture</a></li>
+              <li><a class="dropdown-item" href="#" onclick="passCategory('groceries')">Groceries</a></li>
+              <li><a class="dropdown-item" href="#" onclick="passCategory('vehicles')">Vehicles</a></li>
+
+              <!-- <li><hr class="dropdown-divider" /></li> -->
+              <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">On Sale</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">New Arrivals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Brands</a>
+          </li>
+        </ul>
+        <form class="d-flex position-relative" role="search">
+          <input
+            id="searchInput"
+            class="searchButton form-control rounded-pill align-self-center"
+            type="search"
+            placeholder="Search for products..."
+            aria-label="Search"
+          />
+          <button class="btn position-absolute start-0 align-self-center" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div class="d-flex justify-content-center">
+          <a href="cartPage.html">
+            <i class="navbarIcons fa-solid fa-cart-shopping fa-lg"></i>
+          </a>
+          <a href="#">
+            <i class="navbarIcons fa-regular fa-circle-user fa-lg"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="Home.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Category Page</li>
+    </ol>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Filtered Options -->
+      <div class="col-3">
+        <div class="filters">
+          <div>
+            <div class="d-flex justify-content-between align-items-center">
+              <p style="font-size: larger; font-weight: 500; padding-top: 8px;">Filters</p>
+              <img src="../Images/Frame.svg" alt="frame.svg">
+            </div>
+
+            <hr>
+
+            <a href="#" class="text-decoration-none" onclick="passCategory('men')">
+              <div class="d-flex justify-content-between align-items-center">
+                <p id="filterCat">Men</p>
+                <img src="../Images/arrow.svg">
+              </div>
+            </a>
+
+            <a href="#" class="text-decoration-none" onclick="passCategory('women')">
+              <div class="d-flex justify-content-between align-items-center">
+                <p id="filterCat">Women</p>
+                <img src="../Images/arrow.svg">
+              </div>
+            </a>
+
+            <a href="#" class="text-decoration-none" onclick="passCategory('accessories')">
+              <div class="d-flex justify-content-between align-items-center">
+                <p id="filterCat">Accessories</p>
+                <img src="../Images/arrow.svg">
+              </div>
+            </a>
+
+            <a href="#" class="text-decoration-none" onclick="passCategory('care')">
+              <div class="d-flex justify-content-between align-items-center">
+                <p id="filterCat">Care</p>
+                <img src="../Images/arrow.svg">
+              </div>
+            </a>
+
+            <a href="#" class="text-decoration-none" onclick="passCategory('electronics')">
+              <div class="d-flex justify-content-between align-items-center">
+                <p id="filterCat">Electronics</p>
+                <img src="../Images/arrow.svg">
+              </div>
+            </a>
+
+            <a href="#" class="text-decoration-none" onclick="passCategory('furniture')">
+              <div class="d-flex justify-content-between align-items-center">
+                <p id="filterCat">Furniture</p>
+                <img src="../Images/arrow.svg">
+              </div>
+            </a>
+
+            <a href="#" class="text-decoration-none" onclick="passCategory('groceries')">
+              <div class="d-flex justify-content-between align-items-center">
+                <p id="filterCat">Groceries</p>
+                <img src="../Images/arrow.svg">
+              </div>
+            </a>
+
+
+
+            <a href="#" class="text-decoration-none" onclick="passCategory('vehicles')">
+              <div class="d-flex justify-content-between align-items-center">
+                <p id="filterCat">Vehicles</p>
+                <img src="../Images/arrow.svg">
+              </div>
+            </a>
+          </div>
+
+          <hr>
+
+          <div class="range-slider">
+            <div class="slider-track"></div>
+            <div class="slider-range" id="slider-range"></div>
+            <input type="range" id="rangeMin" min="0" max="1000" value="100" />
+            <input type="range" id="rangeMax" min="0" max="1000" value="900" />
+          </div>
+         
+          <div class="d-flex align-items-center">
+            <div>
+              <label class="form-label">Min Value</label>
+              <input type="text" class="form-control" id="minValDisplay" readonly>
+            </div>
+            <div>
+              <label class="form-label">Max Value</label>
+              <input type="text" class="form-control" id="maxValDisplay" readonly>
+            </div>
+          </div>
+            
+        </div>
+
+      </div>
+
+
+
+      <!-- Filtered Products -->
+      <div class="col-9">
+          
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <script src="../Scripts/JS/bootstrap.bundle.min.js"></script>
+  <script src="../Scripts/JS/all.min.js"></script>
+  <script src="../Scripts/shopPage.js"></script>
+
+</body>
+
+</html>
