@@ -114,8 +114,8 @@ svg {
   border-radius: 20px;
   text-align: center;
   width: 100%;
-  padding: auto;
-  margin: 5px;
+  padding: 0.1rem 0;
+  margin-left: 5px;
   line-height: 2;
   a {
     text-decoration: none;
@@ -182,8 +182,9 @@ svg {
   margin: 0.5rem;
 }
 
-#Product_Details,
-#FAQs {
+.Product_Details,
+.Rating_And_Reviews,
+.FAQs {
   border-bottom: 1px solid;
   border-color: rgb(208, 204, 204);
   a {
@@ -196,7 +197,7 @@ svg {
   }
 }
 
-#Rating_And_Reviews {
+.active {
   border-bottom: 2px solid;
   a {
     color: black;
