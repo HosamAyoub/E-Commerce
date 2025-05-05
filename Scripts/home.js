@@ -41,6 +41,9 @@ function displayProducts(num, arr, section) {
   }
 
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
+    btn.replaceWith(btn.cloneNode(true)); 
+  });
+  document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
     btn.addEventListener("click", function () {
       const item = {
         id: this.dataset.id,
@@ -50,19 +53,24 @@ function displayProducts(num, arr, section) {
         discount: parseFloat(this.dataset.discount) || 0,
         quantity: 1,
       };
-
+    
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-      const existingItem = cart.find((i) => i.id === item.id);
-      if (existingItem) {
-        existingItem.quantity += 1;
+    
+      const existingItemIndex = cart.findIndex((i) => i.id === item.id);
+    
+      if (existingItemIndex !== -1) {
+        // Remove from cart
+        cart.splice(existingItemIndex, 1);
+        showDeleteFromCartDialog(item.title);
       } else {
+        // Add to cart
         cart.push(item);
+        showAddToCartDialog(item.title);
       }
-
+    
       localStorage.setItem("cart", JSON.stringify(cart));
-      showAddToCartDialog(item.title);
     });
+    
   });
 
   showedProducts = i;
@@ -152,12 +160,27 @@ topSelling.addEventListener("click", function () {
 function showAddToCartDialog(productName) {
   const dialog = document.getElementById("cart-dialog");
   dialog.textContent = `"${productName}" has been added to your cart`;
+  dialog.classList.remove("alert-danger");
+  dialog.classList.add("alert-success");
   dialog.style.display = "block";
 
   setTimeout(() => {
     dialog.style.display = "none";
   }, 3000);
 }
+
+function showDeleteFromCartDialog(productName) {
+  const dialog = document.getElementById("cart-dialog");
+  dialog.textContent = `"${productName}" has been deleted from your cart`;
+  dialog.classList.remove("alert-success");
+  dialog.classList.add("alert-danger");
+  dialog.style.display = "block";
+
+  setTimeout(() => {
+    dialog.style.display = "none";
+  }, 3000);
+}
+
 
 function passProductInfo(element) {
   localStorage.setItem("clickedProduct", JSON.stringify(products[element]));

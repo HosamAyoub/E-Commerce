@@ -76,13 +76,18 @@ function displayItem() {
                     
                     <div class="d-flex">
                             <div class="quantity-control">
-                                <button type="button">−</button>
-                                <span>1</span>
-                                <button type="button">+</button>
+                              <button type="button" id="decreaseQty">−</button>
+                              <span id="quantityValue">1</span>
+                              <button type="button" id="increaseQty">+</button>
                             </div>
 
+
                             <div id="addToCart">
-                                <a href="#" target="_blank">Add To Cart</a>
+                                <button class="add-to-cart-btn border-0 bg-transparent" style="color: white;" data-id="${product.id}"
+                                  data-title="${product.title}" data-price="${product.price}"
+                                  data-image="${product.images[0]}" data-discount="${product.discountPercentage}">
+                                  Add To Cart
+                                </button>
                             </div>
                     </div>
 
@@ -93,7 +98,65 @@ function displayItem() {
     let dynamicContent = displayRateHTML();
 
     contentElement.innerHTML = staticContent + dynamicContent;
+
+    // Handle quantity increment/decrement
+    let quantity = 1;
+    const quantitySpan = document.getElementById("quantityValue");
+    const increaseBtn = document.getElementById("increaseQty");
+    const decreaseBtn = document.getElementById("decreaseQty");
+    increaseBtn.addEventListener("click", () => {
+      quantity++;
+      quantitySpan.textContent = quantity;
+    });
+    
+    decreaseBtn.addEventListener("click", () => {
+      if (quantity > 1) {
+        quantity--;
+        quantitySpan.textContent = quantity;
+      }
+    });
+
+
+    document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const item = {
+          id: this.dataset.id,
+          title: this.dataset.title,
+          price: parseFloat(this.dataset.price),
+          image: this.dataset.image,
+          discount: parseFloat(this.dataset.discount) || 0,
+          quantity: quantity,
+        };
+  
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+        const existingItem = cart.find((i) => i.id === item.id);
+        if (existingItem) {
+          existingItem.quantity += item.quantity;
+        } else {
+          cart.push(item);
+        }
+  
+        localStorage.setItem("cart", JSON.stringify(cart));
+        showAddToCartDialog(item.title);
+
+        quantity = 1;
+        quantitySpan.textContent = quantity;
+      });
+    });
   }
+}
+
+
+
+function showAddToCartDialog(productName) {
+  const dialog = document.getElementById("cart-dialog");
+  dialog.textContent = `"${productName}" has been added to your cart`;
+  dialog.style.display = "block";
+
+  setTimeout(() => {
+    dialog.style.display = "none";
+  }, 3000);
 }
 
 /******************************  Rating System   ******************************************/
