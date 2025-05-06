@@ -30,7 +30,7 @@ function displayProducts(num, arr, section) {
       </div>
       <div class="cardFooter mx-0 px-0 border-0 outline-0 d-flex justify-content-between align-items-center">
         <p>${arr[i].price}$</p>
-        <button class="add-to-cart-btn border-0 bg-transparent" data-id="${arr[i].id}"
+        <button id="productButton${arr[i].id}" class="add-to-cart-btn border-0 bg-transparent" data-id="${arr[i].id}"
               data-title="${arr[i].title}" data-price="${arr[i].price}"
               data-image="${arr[i].images[0]}" data-discount="${arr[i].discountPercentage}">
             <i class="fa-solid fa-cart-shopping fa-lg"></i>
@@ -38,10 +38,20 @@ function displayProducts(num, arr, section) {
       </div>
     </div>
   </div>`;
+    // let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    // console.log(arr[i].id);
+    // console.log(cart);
+    // const existingItemIndex = cart.findIndex((x) => x.id === arr[i].id);
+    // if (existingItemIndex !== -1) {
+    //   document.querySelector(`#productButton${arr[i].id}`).style.color = "green";
+    // } else {
+    //   document.querySelector(`#productButton${arr[i].id}`).style.color = "black";
+    // }
+    i++;
   }
 
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
-    btn.replaceWith(btn.cloneNode(true)); 
+    btn.replaceWith(btn.cloneNode(true));
   });
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
     btn.addEventListener("click", function () {
@@ -53,24 +63,25 @@ function displayProducts(num, arr, section) {
         discount: parseFloat(this.dataset.discount) || 0,
         quantity: 1,
       };
-    
+
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
+
       const existingItemIndex = cart.findIndex((i) => i.id === item.id);
-    
+
       if (existingItemIndex !== -1) {
         // Remove from cart
         cart.splice(existingItemIndex, 1);
         showDeleteFromCartDialog(item.title);
+        document.querySelector(`#productButton${item.id}`).style.color = "black";
       } else {
         // Add to cart
         cart.push(item);
         showAddToCartDialog(item.title);
+        document.querySelector(`#productButton${item.id}`).style.color = "green";
       }
-    
+
       localStorage.setItem("cart", JSON.stringify(cart));
     });
-    
   });
 
   showedProducts = i;
@@ -180,7 +191,6 @@ function showDeleteFromCartDialog(productName) {
     dialog.style.display = "none";
   }, 3000);
 }
-
 
 function passProductInfo(element) {
   localStorage.setItem("clickedProduct", JSON.stringify(products[element]));
