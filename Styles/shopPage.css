@@ -143,6 +143,53 @@ a > div > p {
   z-index: 2;
 }
 
+/* Cards */
+.card {
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+}
+
+.card-body {
+  padding-top: 1.2rem;
+}
+
+.card-title {
+  /* text-align: start;
+  text-decoration: none;
+  color: var(--black-color);
+  margin: 1vh 0 0 0 !important; */
+}
+
+.cardFooter p {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.totalRate {
+  color: #00000080;
+}
+
+.cardFooter a {
+  padding: 0;
+  margin: 0;
+}
+.cardFooter svg {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.add-to-cart-btn {
+  /* color: red !important; */
+}
+
+.card-body a {
+  text-decoration: none;
+  color: var(--black-color);
+}
+
 /* Footer */
 footer {
   background-color: #e1e3e6;

@@ -29,9 +29,9 @@ function displayProducts(num, arr, section) {
         <div><span class="">${arr[i].rating.toFixed(1)}/</span><span class="totalRate">5</span></div>
       </div>
       <div class="cardFooter mx-0 px-0 border-0 outline-0 d-flex justify-content-between align-items-center">
-        <p>${arr[i].price}$</p>
+        <p>${(arr[i].price * (1 - arr[i].discountPercentage / 100)).toFixed(2)}$</p>
         <button id="productButton${arr[i].id}" class="add-to-cart-btn border-0 bg-transparent" data-id="${arr[i].id}"
-              data-title="${arr[i].title}" data-price="${arr[i].price}"
+              data-title="${arr[i].title}" data-price="${(arr[i].price * (1 - arr[i].discountPercentage / 100)).toFixed(2)}"
               data-image="${arr[i].images[0]}" data-discount="${arr[i].discountPercentage}">
             <i class="fa-solid fa-cart-shopping fa-lg"></i>
         </button>
