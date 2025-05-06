@@ -14,6 +14,25 @@ var showedProducts = 0;
 var clothesProducts = [];
 var products = [];
 
+async function fetchData() {
+  const response = await fetch("https://dummyjson.com/products?limit=0");
+  data = await response.json();
+  console.log(data);
+  clothesProducts = data.products.filter((product) => {
+    if (
+      (product.images.length > 2 && GeneralCategories.men.includes(product.category)) ||
+      (product.images.length > 2 && GeneralCategories.women.includes(product.category))
+    )
+      return product;
+  });
+  products = data.products.filter((product) => product.images.length > 2);
+  displayProducts(8, products, "topSellingCards");
+  displayProducts(8, products, "newArrivalCards");
+  localStorage.setItem("products", JSON.stringify(products));
+}
+
+fetchData();
+
 function displayProducts(num, arr, section) {
   const cards = document.getElementById(section);
   for (i = showedProducts; i < showedProducts + num && i < arr.length; i++) {
@@ -144,22 +163,6 @@ function resetRate() {
     starsArray[i].style.color = "black";
   }
 }
-
-fetch("https://dummyjson.com/products?limit=0")
-  .then((res) => res.json())
-  .then((data) => {
-    clothesProducts = data.products.filter((product) => {
-      if (
-        (product.images.length > 2 && GeneralCategories.men.includes(product.category)) ||
-        (product.images.length > 2 && GeneralCategories.women.includes(product.category))
-      )
-        return product;
-    });
-    products = data.products.filter((product) => product.images.length > 2);
-    displayProducts(8, products, "topSellingCards");
-    displayProducts(8, products, "newArrivalCards");
-    localStorage.setItem("products", JSON.stringify(products));
-  });
 
 const newArrival = document.getElementById("viewAllNewArrival");
 const topSelling = document.getElementById("viewTopSelling");
