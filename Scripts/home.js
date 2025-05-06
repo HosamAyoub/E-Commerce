@@ -38,18 +38,23 @@ function displayProducts(num, arr, section) {
       </div>
     </div>
   </div>`;
-    // let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    // console.log(arr[i].id);
-    // console.log(cart);
-    // const existingItemIndex = cart.findIndex((x) => x.id === arr[i].id);
-    // if (existingItemIndex !== -1) {
-    //   document.querySelector(`#productButton${arr[i].id}`).style.color = "green";
-    // } else {
-    //   document.querySelector(`#productButton${arr[i].id}`).style.color = "black";
-    // }
-    i++;
   }
 
+  checkPayedProducts();
+
+  BuyProduct();
+
+  showedProducts = i;
+}
+
+function checkPayedProducts() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  for (const element of cart) {
+    if (document.querySelector(`#productButton${element.id}`) !== null) document.querySelector(`#productButton${element.id}`).style.color = "green";
+  }
+}
+
+function BuyProduct() {
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
     btn.replaceWith(btn.cloneNode(true));
   });
@@ -78,13 +83,12 @@ function displayProducts(num, arr, section) {
         cart.push(item);
         showAddToCartDialog(item.title);
         document.querySelector(`#productButton${item.id}`).style.color = "green";
+        console.log(item.id);
       }
 
       localStorage.setItem("cart", JSON.stringify(cart));
     });
   });
-
-  showedProducts = i;
 }
 
 function displayRate(rate) {

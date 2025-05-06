@@ -82,13 +82,12 @@ function displayItem() {
                             </div>
 
 
-                            <div id="addToCart">
-                                <button class="add-to-cart-btn border-0 bg-transparent" style="color: white;" data-id="${product.id}"
+                          
+                                <button class="add-to-cart-btn border-0 bg-black rounded-pill" style="color: white;" data-id="${product.id}"
                                   data-title="${product.title}" data-price="${product.price}"
                                   data-image="${product.images[0]}" data-discount="${product.discountPercentage}">
                                   Add To Cart
                                 </button>
-                            </div>
                     </div>
 
                 </div>
@@ -108,14 +107,13 @@ function displayItem() {
       quantity++;
       quantitySpan.textContent = quantity;
     });
-    
+
     decreaseBtn.addEventListener("click", () => {
       if (quantity > 1) {
         quantity--;
         quantitySpan.textContent = quantity;
       }
     });
-
 
     document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
       btn.addEventListener("click", function () {
@@ -127,16 +125,16 @@ function displayItem() {
           discount: parseFloat(this.dataset.discount) || 0,
           quantity: quantity,
         };
-  
+
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  
+
         const existingItem = cart.find((i) => i.id === item.id);
         if (existingItem) {
           existingItem.quantity += item.quantity;
         } else {
           cart.push(item);
         }
-  
+
         localStorage.setItem("cart", JSON.stringify(cart));
         showAddToCartDialog(item.title);
 
@@ -146,8 +144,6 @@ function displayItem() {
     });
   }
 }
-
-
 
 function showAddToCartDialog(productName) {
   const dialog = document.getElementById("cart-dialog");
