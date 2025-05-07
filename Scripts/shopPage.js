@@ -26,7 +26,6 @@ function passCategory(category) {
     }
   }
 
-  console.log(categorizedList);
   //==> pass categorized to displey function
   displayProducts(categorizedList);
 }
@@ -113,9 +112,9 @@ function displayProducts(arr) {
   cards.innerHTML = "";
   for (let i = 0; i < arr.length; i++) {
     cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-    <a id="clickedProduct" href="productDetails.html" onclick="passProductInfo('${i}')"><img src="${arr[i].thumbnail}" class="card-img-top" alt="${
-      arr[i].title
-    }" style="background-color: #f0eeed; border-radius: 15px;"/></a>
+    <a id="clickedProduct" href="productDetails.html" onclick="passProductInfo('${productsList.indexOf(arr[i])}')"><img src="${
+      arr[i].thumbnail
+    }" class="card-img-top" alt="${arr[i].title}" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
       <a id="clickedProduct" href="productDetails.html" onclick="passProductInfo('${i}')"><h5 class="card-title">${arr[i].title}</h5></a>
       <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
@@ -189,6 +188,10 @@ function checkPayedProducts() {
   }
 }
 
+function passProductInfo(index) {
+  localStorage.setItem("clickedProduct", JSON.stringify(productsList[index]));
+}
+
 function BuyProduct() {
   document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
     btn.replaceWith(btn.cloneNode(true));
@@ -218,7 +221,6 @@ function BuyProduct() {
         cart.push(item);
         showAddToCartDialog(item.title);
         document.querySelector(`#productButton${item.id}`).style.color = "green";
-        console.log(item.id);
       }
 
       localStorage.setItem("cart", JSON.stringify(cart));
