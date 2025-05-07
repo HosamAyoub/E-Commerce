@@ -113,11 +113,11 @@ function displayProducts(arr) {
   cards.innerHTML = "";
   for (let i = 0; i < arr.length; i++) {
     cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-    <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><img src="${
-      arr[i].thumbnail
-    }" class="card-img-top" alt="${arr[i].title}" style="background-color: #f0eeed; border-radius: 15px;"/></a>
+    <a id="clickedProduct" href="productDetails.html" onclick="passProductInfo('${i}')"><img src="${arr[i].thumbnail}" class="card-img-top" alt="${
+      arr[i].title
+    }" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
-      <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><h5 class="card-title">${arr[i].title}</h5></a>
+      <a id="clickedProduct" href="productDetails.html" onclick="passProductInfo('${i}')"><h5 class="card-title">${arr[i].title}</h5></a>
       <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
       <div class="starsContainer d-flex align-items-center justify-content-between" id="starsContainer">
         <div class="d-flex">${displayRate(arr[i].rating.toFixed(1))}</div>
