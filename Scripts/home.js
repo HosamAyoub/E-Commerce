@@ -202,3 +202,18 @@ function showDeleteFromCartDialog(productName) {
 function passProductInfo(element) {
   localStorage.setItem("clickedProduct", JSON.stringify(products[element]));
 }
+
+let searchInput = document.getElementById("searchInput") ?? "";
+let searchedProductsList = [];
+
+searchInput.addEventListener("keypress", function (event) {
+  searchText = searchInput.value.toUpperCase();
+  if (event.key === "Enter") {
+    console.log("Enter");
+    event.preventDefault();
+    // search(searchText);
+    window.location.href = "shopPage.html?search=true";
+    localStorage.setItem("searchText", searchText);
+    // window.
+  }
+});

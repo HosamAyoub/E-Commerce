@@ -37,20 +37,26 @@ let searchInput = document.getElementById("searchInput") ?? "";
 let searchedProductsList = [];
 
 searchInput.addEventListener("keypress", function (event) {
-  searchText = searchInput.value.toUpperCase();
+  let searchText = searchInput.value.toUpperCase();
   if (event.key === "Enter") {
-    console.log("Enter");
     event.preventDefault();
-    searchedProductsList = productsList.filter(
-      (product) =>
-        product.title.toUpperCase().includes(searchText) ||
-        product.description.toUpperCase().includes(searchText) ||
-        product.brand?.toUpperCase().includes(searchText) ||
-        product.category.toUpperCase().includes(searchText)
-    );
-    displayProducts(searchedProductsList);
+    search(searchText);
   }
 });
+
+function search(searchText) {
+  if (searchText !== "") {
+    displayProducts(
+      productsList.filter(
+        (product) =>
+          product.title.toUpperCase().includes(searchText) ||
+          product.description.toUpperCase().includes(searchText) ||
+          product.brand?.toUpperCase().includes(searchText) ||
+          product.category.toUpperCase().includes(searchText)
+      )
+    );
+  }
+}
 
 /********************************* Price Filtering ***********************************/
 
@@ -231,3 +237,14 @@ function showAddToCartDialog(productName) {
     dialog.style.display = "none";
   }, 3000);
 }
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Check for URL parameter
+//   const urlParams = new URLSearchParams(window.location.search);
+//   if (urlParams.has("search")) {
+//     // console.log(localStorage.getItem("searchText"));
+//     search(localStorage.getItem("searchText"));
+//   } else {
+//     // updateSlider();
+//   }
+// });
