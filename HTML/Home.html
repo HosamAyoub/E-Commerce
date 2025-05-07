@@ -40,8 +40,6 @@
                 <li><a class="dropdown-item" href="shopPage.html?furniture">Furniture</a></li>
                 <li><a class="dropdown-item" href="shopPage.html?groceries">Groceries</a></li>
                 <li><a class="dropdown-item" href="shopPage.html?vehicles">Vehicles</a></li>
-                <!-- <li><hr class="dropdown-divider" /></li> -->
-                <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
               </ul>
             </li>
             <li class="nav-item">
@@ -57,17 +55,19 @@
               <a class="nav-link" href="#contactUs">Contact Us</a>
             </li>
           </ul>
-          <form class="d-flex position-relative" role="search">
-            <input
-              id="searchInput"
-              class="searchButton form-control rounded-pill align-self-center"
-              type="search"
-              placeholder="Search for products..."
-              aria-label="Search"
-            />
-            <button class="btn position-absolute start-0 align-self-center" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+          <form class="d-flex justify-content-center searchForm" role="search">
+            <div class="position-relative">
+              <input
+                id="searchInput"
+                class="searchButton form-control rounded-pill align-self-center"
+                type="search"
+                placeholder="Search for products..."
+                aria-label="Search"
+              />
+              <button id="searchIcon" class="searchIcon btn position-absolute border-0 outline-0" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
           </form>
           <div class="d-flex justify-content-center">
             <a href="cartPage.html">

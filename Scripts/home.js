@@ -198,8 +198,8 @@ function showDeleteFromCartDialog(productName) {
   }, 3000);
 }
 
-function passProductInfo(element) {
-  localStorage.setItem("clickedProduct", JSON.stringify(products[element]));
+function passProductInfo(index) {
+  localStorage.setItem("clickedProduct", JSON.stringify(products[index]));
 }
 
 function getTopReviews() {
@@ -262,6 +262,7 @@ topSelling.addEventListener("click", function () {
 });
 
 let searchInput = document.getElementById("searchInput") ?? "";
+let searchIcon = document.getElementById("searchIcon");
 let searchedProductsList = [];
 
 searchInput.addEventListener("keypress", function (event) {
@@ -271,4 +272,12 @@ searchInput.addEventListener("keypress", function (event) {
     window.location.href = "shopPage.html?search";
     localStorage.setItem("searchText", searchText);
   }
+});
+
+searchIcon.addEventListener("click", function (event) {
+  searchText = searchInput.value.toUpperCase();
+  console.log(searchText);
+  event.preventDefault();
+  window.location.href = "shopPage.html?search";
+  localStorage.setItem("searchText", searchText);
 });
