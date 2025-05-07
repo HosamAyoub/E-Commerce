@@ -369,3 +369,9 @@ displayItem();
 productDetailsElement = document.getElementById("Product_Details");
 ratingReviewsElement = document.getElementById("Rating_And_Reviews");
 FAQsElement = document.getElementById("FAQs");
+
+
+document.getElementById("confirmLogoutBtn").addEventListener("click", function () {
+  sessionStorage.removeItem("loggedInUser");
+  window.location.href = "login.html";
+});

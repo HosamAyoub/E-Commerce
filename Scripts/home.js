@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const user = sessionStorage.getItem("loggedInUser");
+
+  const loginSuccess = sessionStorage.getItem("loginSuccess");
+  if (loginSuccess) {
+    showLoginMessage();
+    sessionStorage.removeItem("loginSuccess");
+  }
+});
+
 const GeneralCategories = {
   accessories: ["sports-accessories", "sunglasses"],
   care: ["fragrances", "skin-care"],
@@ -47,9 +57,8 @@ function displayProducts(num, arr, section) {
   const cards = document.getElementById(section);
   for (i = showedProducts; i < showedProducts + num && i < arr.length; i++) {
     cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-    <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><img src="${
-      arr[i].thumbnail
-    }" class="card-img-top" alt="${arr[i].title}" style="background-color: #f0eeed; border-radius: 15px;"/></a>
+    <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><img src="${arr[i].thumbnail
+      }" class="card-img-top" alt="${arr[i].title}" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
       <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><h5 class="card-title">${arr[i].title}</h5></a>
       <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
@@ -272,3 +281,16 @@ searchInput.addEventListener("keypress", function (event) {
     localStorage.setItem("searchText", searchText);
   }
 });
+
+
+document.getElementById("confirmLogoutBtn").addEventListener("click", function () {
+  sessionStorage.removeItem("loggedInUser");
+  window.location.href = "login.html";
+});
+function showLoginMessage() {
+  const messageDiv = document.getElementById("loginMessage");
+  messageDiv.style.display = "block";
+  setTimeout(() => {
+    messageDiv.style.display = "none";
+  }, 3000);
+}

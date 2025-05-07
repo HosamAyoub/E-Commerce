@@ -250,3 +250,9 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSlider();
   }
 });
+
+
+document.getElementById("confirmLogoutBtn").addEventListener("click", function () {
+  sessionStorage.removeItem("loggedInUser");
+  window.location.href = "login.html";
+});
