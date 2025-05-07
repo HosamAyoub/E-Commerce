@@ -212,7 +212,7 @@ searchInput.addEventListener("keypress", function (event) {
     console.log("Enter");
     event.preventDefault();
     // search(searchText);
-    window.location.href = "shopPage.html?search=true";
+    window.location.href = "shopPage.html?search";
     localStorage.setItem("searchText", searchText);
     // window.
   }

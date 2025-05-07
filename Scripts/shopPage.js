@@ -93,7 +93,7 @@ function updateSlider() {
 
 rangeMin.addEventListener("input", updateSlider);
 rangeMax.addEventListener("input", updateSlider);
-window.addEventListener("DOMContentLoaded", updateSlider);
+// window.addEventListener("DOMContentLoaded", updateSlider);
 
 function passMinAndMaxPrices(minPrice, maxPrice) {
   let filteredList = [];
@@ -238,13 +238,15 @@ function showAddToCartDialog(productName) {
   }, 3000);
 }
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Check for URL parameter
-//   const urlParams = new URLSearchParams(window.location.search);
-//   if (urlParams.has("search")) {
-//     // console.log(localStorage.getItem("searchText"));
-//     search(localStorage.getItem("searchText"));
-//   } else {
-//     // updateSlider();
-//   }
-// });
+document.addEventListener("DOMContentLoaded", function () {
+  let urlParams = new URLSearchParams(window.location.search).toString();
+  urlParams = urlParams.substring(0, urlParams.length - 1);
+
+  if (urlParams === "search") {
+    search(localStorage.getItem("searchText"));
+  } else if (urlParams !== "") {
+    passCategory(urlParams);
+  } else {
+    updateSlider();
+  }
+});
