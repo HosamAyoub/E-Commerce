@@ -9,15 +9,15 @@ const GeneralCategories = {
   women: ["tops", "womens-bags", "womens-dresses", "womens-jewellery", "womens-shoes", "womens-watches"],
 };
 
-var i = 0;
-var showedProducts = 0;
-var clothesProducts = [];
-var products = [];
+let i = 0;
+let showedProducts = 0;
+let clothesProducts = [];
+let products = [];
+let topReviewsList = [];
 
 async function fetchData() {
   const response = await fetch("https://dummyjson.com/products?limit=0");
   data = await response.json();
-  console.log(data);
   clothesProducts = data.products.filter((product) => {
     if (
       (product.images.length > 2 && GeneralCategories.men.includes(product.category)) ||
@@ -26,6 +26,7 @@ async function fetchData() {
       return product;
   });
   products = data.products.filter((product) => product.images.length > 2);
+  getTopReviews();
   displayProducts(8, products, "topSellingCards");
   displayProducts(8, products, "newArrivalCards");
   localStorage.setItem("products", JSON.stringify(products));
@@ -209,11 +210,59 @@ let searchedProductsList = [];
 searchInput.addEventListener("keypress", function (event) {
   searchText = searchInput.value.toUpperCase();
   if (event.key === "Enter") {
-    console.log("Enter");
     event.preventDefault();
-    // search(searchText);
     window.location.href = "shopPage.html?search";
     localStorage.setItem("searchText", searchText);
-    // window.
   }
 });
+
+// let reviewsList = convertDate(products.reviews);
+
+function displayRateHTML() {
+  let content = `<div class="row d-flex mx-2">
+                    <div class="col-4 my-2 Product_Details" id="Product_Details">
+                        <a id="detailsOfProduct" href="#detailsOfProduct" onclick="clickDetails()"><h5>Product Details</h5></a>
+                    </div>
+                    <div class="col-4 my-2 Rating_And_Reviews active" id="Rating_And_Reviews">
+                        <a id="rating" href="#rating" onclick="clickRating()"><h5>Raing & Reviews</h5></a>
+                    </div>
+                    <div class="col-4 my-2 FAQs" id="FAQs">
+                        <a id="faqs" href="#faqs" onclick="clickFAQs()"><h5>FAQs</h5></a>
+                    </div>
+              </div>
+              <h5 class="m-4">All Reviews <span class="text-black-50">(${topReviewsList.length})</span></h5>
+              <div class="row" id="reviews">`;
+  topReviewsList.forEach((review) => {
+    content += `
+                            <div class="col-6">
+                                <div id="review">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex my-2">${displayRate(review.rating)}</div>
+                                        <i class="fa-solid fa-ellipsis"></i>
+                                    </div>
+                                    <div class="d-flex">
+                                        <h4>${review.reviewerName}</h4>
+                                        <i class="fa-solid fa-circle-check ms-2 mt-2" style="color: #3fa654;"></i>
+                                    </div>
+                                    <p>${review.comment}</p>
+                                    <p class="mt-3 text-black-50">Posted on ${review.date}</p>
+                                </div>
+                            </div>
+                        `;
+  });
+  content += `</div>
+            </section>`;
+  return content;
+}
+
+function getTopReviews() {
+  // let temp = JSON.parse(localStorage.getItem("products"));
+  for (const element of products) {
+    for (const review of element.reviews) {
+      if (review.rating === 5) {
+        // console.log(review);
+        topReviewsList.push(review);
+      }
+    }
+  }
+}

@@ -39,8 +39,9 @@ nav {
 }
 
 .active {
-  border-bottom: 2px solid;
-  color: black;
+  border-bottom: 2.5px solid var(--black-color);
+  /* color: red; */
+  /* border-radius: 1.5px; */
   text-decoration: none;
   text-align: center;
 }
@@ -239,6 +240,18 @@ article h2 {
         --backround-color: var(--white-color);
     }
 } */
+
+/* Carousel */
+#reviews {
+  margin: 0.5rem 3rem;
+}
+#review {
+  border: 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+}
 
 /* Footer */
 footer {
