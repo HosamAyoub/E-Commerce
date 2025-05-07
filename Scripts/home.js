@@ -26,9 +26,18 @@ async function fetchData() {
       return product;
   });
   products = data.products.filter((product) => product.images.length > 2);
-  getTopReviews();
   displayProducts(8, products, "topSellingCards");
   displayProducts(8, products, "newArrivalCards");
+  getTopReviews();
+  topReviewsList = convertDate(topReviewsList);
+  // console.log(topReviewsList);
+
+  displayCarouselRates("carouselSection1");
+  displayCarouselRates("carouselSection2");
+  displayCarouselRates("carouselSection3");
+  displayCarouselRates("carouselSection4");
+  displayCarouselRates("carouselSection5");
+  displayCarouselRates("carouselSection6");
   localStorage.setItem("products", JSON.stringify(products));
 }
 
@@ -103,7 +112,7 @@ function BuyProduct() {
         cart.push(item);
         showAddToCartDialog(item.title);
         document.querySelector(`#productButton${item.id}`).style.color = "green";
-        console.log(item.id);
+        // console.log(item.id);
       }
 
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -165,17 +174,6 @@ function resetRate() {
   }
 }
 
-const newArrival = document.getElementById("viewAllNewArrival");
-const topSelling = document.getElementById("viewTopSelling");
-newArrival.addEventListener("click", function () {
-  displayProducts(8, products, "newArrivalCards");
-  newArrival.style.display = "none";
-});
-topSelling.addEventListener("click", function () {
-  displayProducts(8, products, "topSellingCards");
-  topSelling.style.display = "none";
-});
-
 function showAddToCartDialog(productName) {
   const dialog = document.getElementById("cart-dialog");
   dialog.textContent = `"${productName}" has been added to your cart`;
@@ -204,57 +202,6 @@ function passProductInfo(element) {
   localStorage.setItem("clickedProduct", JSON.stringify(products[element]));
 }
 
-let searchInput = document.getElementById("searchInput") ?? "";
-let searchedProductsList = [];
-
-searchInput.addEventListener("keypress", function (event) {
-  searchText = searchInput.value.toUpperCase();
-  if (event.key === "Enter") {
-    event.preventDefault();
-    window.location.href = "shopPage.html?search";
-    localStorage.setItem("searchText", searchText);
-  }
-});
-
-// let reviewsList = convertDate(products.reviews);
-
-function displayRateHTML() {
-  let content = `<div class="row d-flex mx-2">
-                    <div class="col-4 my-2 Product_Details" id="Product_Details">
-                        <a id="detailsOfProduct" href="#detailsOfProduct" onclick="clickDetails()"><h5>Product Details</h5></a>
-                    </div>
-                    <div class="col-4 my-2 Rating_And_Reviews active" id="Rating_And_Reviews">
-                        <a id="rating" href="#rating" onclick="clickRating()"><h5>Raing & Reviews</h5></a>
-                    </div>
-                    <div class="col-4 my-2 FAQs" id="FAQs">
-                        <a id="faqs" href="#faqs" onclick="clickFAQs()"><h5>FAQs</h5></a>
-                    </div>
-              </div>
-              <h5 class="m-4">All Reviews <span class="text-black-50">(${topReviewsList.length})</span></h5>
-              <div class="row" id="reviews">`;
-  topReviewsList.forEach((review) => {
-    content += `
-                            <div class="col-6">
-                                <div id="review">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex my-2">${displayRate(review.rating)}</div>
-                                        <i class="fa-solid fa-ellipsis"></i>
-                                    </div>
-                                    <div class="d-flex">
-                                        <h4>${review.reviewerName}</h4>
-                                        <i class="fa-solid fa-circle-check ms-2 mt-2" style="color: #3fa654;"></i>
-                                    </div>
-                                    <p>${review.comment}</p>
-                                    <p class="mt-3 text-black-50">Posted on ${review.date}</p>
-                                </div>
-                            </div>
-                        `;
-  });
-  content += `</div>
-            </section>`;
-  return content;
-}
-
 function getTopReviews() {
   // let temp = JSON.parse(localStorage.getItem("products"));
   for (const element of products) {
@@ -266,3 +213,62 @@ function getTopReviews() {
     }
   }
 }
+
+function displayCarouselRates(section) {
+  let content = `<div class="row justify-content-center" id="reviews">`;
+  for (let index = 0; index < 4; index++) {
+    content += `
+                            <div class="col-3">
+                                <div id="review">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex my-2">${displayRate(topReviewsList[topReviewsList.length - 1].rating)}</div>
+                                        <i class="fa-solid fa-ellipsis"></i>
+                                    </div>
+                                    <div class="d-flex">
+                                        <h4>${topReviewsList[topReviewsList.length - 1].reviewerName}</h4>
+                                        <i class="fa-solid fa-circle-check ms-2 mt-2" style="color: #3fa654;"></i>
+                                    </div>
+                                    <p>${topReviewsList[topReviewsList.length - 1].comment}</p>
+                                    <p class="mt-3 text-black-50">Posted on ${topReviewsList[topReviewsList.length - 1].date}</p>
+                                </div>
+                            </div>
+                        `;
+    // console.log(topReviewsList[topReviewsList.length - 1]);
+    topReviewsList.pop();
+  }
+  content += `</div>`;
+  document.getElementById(section).innerHTML = content;
+}
+
+function convertDate(reviews) {
+  let date;
+
+  for (let i = 0; i < reviews.length; i++) {
+    date = new Date(reviews[i].date);
+    reviews[i].date = date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+  }
+  return reviews;
+}
+
+const newArrival = document.getElementById("viewAllNewArrival");
+const topSelling = document.getElementById("viewTopSelling");
+newArrival.addEventListener("click", function () {
+  displayProducts(8, products, "newArrivalCards");
+  newArrival.style.display = "none";
+});
+topSelling.addEventListener("click", function () {
+  displayProducts(8, products, "topSellingCards");
+  topSelling.style.display = "none";
+});
+
+let searchInput = document.getElementById("searchInput") ?? "";
+let searchedProductsList = [];
+
+searchInput.addEventListener("keypress", function (event) {
+  searchText = searchInput.value.toUpperCase();
+  if (event.key === "Enter") {
+    event.preventDefault();
+    window.location.href = "shopPage.html?search";
+    localStorage.setItem("searchText", searchText);
+  }
+});
