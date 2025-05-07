@@ -28,7 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const signUpBtn = document.getElementById("topBarClose");
 
   closeBtn?.addEventListener("click", () => (topBar.style.display = "none"));
-  signUpBtn?.addEventListener("click", () => (topBar.style.display = "none"));
+  signUpBtn?.addEventListener("click", () => {
+    topBar.style.display = "none";
+    window.location.href = "../HTML/register.html";
+  });
 });
 
 function renderCartItems(cart) {

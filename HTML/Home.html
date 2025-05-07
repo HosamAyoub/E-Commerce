@@ -40,8 +40,6 @@
                 <li><a class="dropdown-item" href="shopPage.html?furniture">Furniture</a></li>
                 <li><a class="dropdown-item" href="shopPage.html?groceries">Groceries</a></li>
                 <li><a class="dropdown-item" href="shopPage.html?vehicles">Vehicles</a></li>
-                <!-- <li><hr class="dropdown-divider" /></li> -->
-                <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
               </ul>
             </li>
             <li class="nav-item">
@@ -57,23 +55,25 @@
               <a class="nav-link" href="#contactUs">Contact Us</a>
             </li>
           </ul>
-          <form class="d-flex position-relative" role="search">
-            <input
-              id="searchInput"
-              class="searchButton form-control rounded-pill align-self-center"
-              type="search"
-              placeholder="Search for products..."
-              aria-label="Search"
-            />
-            <button class="btn position-absolute start-0 align-self-center" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+          <form class="d-flex justify-content-center searchForm" role="search">
+            <div class="position-relative">
+              <input
+                id="searchInput"
+                class="searchButton form-control rounded-pill align-self-center"
+                type="search"
+                placeholder="Search for products..."
+                aria-label="Search"
+              />
+              <button id="searchIcon" class="searchIcon btn position-absolute border-0 outline-0" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
           </form>
           <div class="d-flex justify-content-center">
             <a href="cartPage.html">
               <i class="navbarIcons fa-solid fa-cart-shopping fa-lg"></i>
             </a>
-            <a href="#">
+            <a href="login.html">
               <i class="navbarIcons fa-regular fa-circle-user fa-lg"></i>
             </a>
           </div>
@@ -154,24 +154,31 @@
       ></div>
 
       <!-- Carousels -->
-      <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <h2 class="mb-5 text-center">OUR HAPPY CUSTOMERS</h2>
-        <div class="carousel-inner">
-          <div id="carouselSection1" class="carousel-item active"></div>
-          <div id="carouselSection2" class="carousel-item"></div>
-          <div id="carouselSection3" class="carousel-item"></div>
-          <div id="carouselSection4" class="carousel-item"></div>
-          <div id="carouselSection5" class="carousel-item"></div>
-          <div id="carouselSection6" class="carousel-item"></div>
+      <div id="contactUs" class="position-relative">
+        <div class="d-flex justify-content-center mb-4 position-relative">
+          <h2 class="happyCustomers">OUR HAPPY CUSTOMERS</h2>
+          <div class="position-absolute end-0 top-50 translate-middle-y d-flex gap-2 me-3">
+            <button class="carousel-control-prev position-static" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next position-static" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+
+        <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div id="carouselSection1" class="carousel-item active"></div>
+            <div id="carouselSection2" class="carousel-item"></div>
+            <div id="carouselSection3" class="carousel-item"></div>
+            <div id="carouselSection4" class="carousel-item"></div>
+            <div id="carouselSection5" class="carousel-item"></div>
+            <div id="carouselSection6" class="carousel-item"></div>
+          </div>
+        </div>
       </div>
 
       <!-- Footer -->
