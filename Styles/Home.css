@@ -33,12 +33,21 @@ nav {
   font-size: 1.4vw;
 }
 
-.navbar-nav {
-  /* margin: 1vw; */
+.navbar-nav a {
+  text-decoration: none;
+  color: rgb(142, 141, 141);
+}
+
+.active {
+  border-bottom: 2.5px solid var(--black-color);
+  /* color: red; */
+  /* border-radius: 1.5px; */
+  text-decoration: none;
+  text-align: center;
 }
 
 .searchButton {
-  width: 40vw;
+  width: 35vw;
   line-height: 2vw;
   padding: 0.3vw 3vw;
   font-size: 1.2vw;
@@ -72,6 +81,8 @@ main {
 /* Hero */
 .hero {
   background-color: #f2f0f1;
+  /* margin: 0 !important;
+  padding: 0 !important; */
   width: 100vw;
 }
 
@@ -229,6 +240,18 @@ article h2 {
         --backround-color: var(--white-color);
     }
 } */
+
+/* Carousel */
+#reviews {
+  margin: 0.5rem 3rem;
+}
+#review {
+  border: 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+}
 
 /* Footer */
 footer {
