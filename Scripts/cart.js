@@ -48,26 +48,29 @@ function renderCartItems(cart) {
 
     itemElement.innerHTML = `
       <div class="d-flex align-items-center">
-      <img src="${item.image}" class="cart-img me-3" alt="${item.title}" />
-      <div>
-        <h6>${item.title}</h6>
-        <p class="mb-0">$${item.price} x ${item.quantity}</p>
-        <strong>$${itemTotal.toFixed(2)}</strong>
-      </div>
+        <img src="${item.image}" class="cart-img me-3" alt="${item.title}" />
+        <div>
+          <h6>${item.title}</h6>
+          <p class="mb-0">$${item.price} x <span class="item-qty">${item.quantity}</span></p>
+          <strong>$<span class="item-total">${itemTotal.toFixed(2)}</span></strong>
+        </div>
       </div>
       <div class="cart-item-right">
-          <button class="btn-trash"><i class="fas fa-trash-alt"></i></button>
-          <div class="quantity-control">
-            <button type="button">−</button>
-            <span>${item.quantity}</span>
-            <button type="button">+</button>
-          </div>
+        <button class="btn-trash"><i class="fas fa-trash-alt"></i></button>
+        <div class="quantity-control">
+          <button type="button" class="decrease-btn">−</button>
+          <span class="item-qty">${item.quantity}</span>
+          <button type="button" class="increase-btn">+</button>
+        </div>
       </div>
-      `;
+    `;
 
     cartItemsContainer.appendChild(itemElement);
 
-    // Handle delete button
+    const qtySpan = itemElement.querySelector(".quantity-control .item-qty");
+    const totalSpan = itemElement.querySelector(".item-total");
+
+    // Delete item
     itemElement.querySelector(".btn-trash").addEventListener("click", () => {
       cart = cart.filter((i) => i.id !== item.id);
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -75,24 +78,27 @@ function renderCartItems(cart) {
       updateSummary(cart);
     });
 
-    // Handle quantity increment
-    itemElement.querySelector(".quantity-control button:last-child").addEventListener("click", () => {
+    // Increase quantity
+    itemElement.querySelector(".increase-btn").addEventListener("click", () => {
       item.quantity += 1;
+      qtySpan.textContent = item.quantity;
+      totalSpan.textContent = (item.price * item.quantity).toFixed(2);
       localStorage.setItem("cart", JSON.stringify(cart));
-      renderCartItems(cart);
       updateSummary(cart);
     });
 
-    // Handle quantity decrement
-    itemElement.querySelector(".quantity-control button:first-child").addEventListener("click", () => {
+    // Decrease quantity
+    itemElement.querySelector(".decrease-btn").addEventListener("click", () => {
       if (item.quantity > 1) {
         item.quantity -= 1;
+        qtySpan.textContent = item.quantity;
+        totalSpan.textContent = (item.price * item.quantity).toFixed(2);
         localStorage.setItem("cart", JSON.stringify(cart));
-        renderCartItems(cart);
         updateSummary(cart);
       }
     });
   });
+
 }
 
 function updateSummary(cart) {
