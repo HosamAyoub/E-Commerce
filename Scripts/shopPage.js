@@ -108,16 +108,19 @@ function passMinAndMaxPrices(minPrice, maxPrice) {
   displayProducts(filteredList);
 }
 
+
+/******************************** Display **************************************/
+
 function displayProducts(arr) {
   const cards = document.getElementById("filteredProducts");
   cards.innerHTML = "";
   for (let i = 0; i < arr.length; i++) {
     cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-    <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><img src="${
+    <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${productsList.indexOf(arr[i])}')"><img src="${
       arr[i].thumbnail
     }" class="card-img-top" alt="${arr[i].title}" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
-      <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><h5 class="card-title">${arr[i].title}</h5></a>
+      <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${productsList.indexOf(arr[i])}')"><h5 class="card-title">${arr[i].title}</h5></a>
       <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
       <div class="starsContainer d-flex align-items-center justify-content-between" id="starsContainer">
         <div class="d-flex">${displayRate(arr[i].rating.toFixed(1))}</div>
@@ -139,6 +142,13 @@ function displayProducts(arr) {
 
   BuyProduct();
 }
+
+
+function passProductInfo(index) {
+  localStorage.setItem("clickedProduct", JSON.stringify(productsList[index]));
+}
+
+
 
 function displayRate(rate) {
   let result = "";
@@ -231,6 +241,18 @@ function showAddToCartDialog(productName) {
   dialog.textContent = `"${productName}" has been added to your cart`;
   dialog.classList.remove("alert-danger");
   dialog.classList.add("alert-success");
+  dialog.style.display = "block";
+
+  setTimeout(() => {
+    dialog.style.display = "none";
+  }, 3000);
+}
+
+function showDeleteFromCartDialog(productName) {
+  const dialog = document.getElementById("cart-dialog");
+  dialog.textContent = `"${productName}" has been deleted from your cart`;
+  dialog.classList.remove("alert-success");
+  dialog.classList.add("alert-danger");
   dialog.style.display = "block";
 
   setTimeout(() => {

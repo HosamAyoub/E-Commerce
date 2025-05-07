@@ -14,7 +14,7 @@
   <body>
     <div class="container-fluid">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg sticky-top">
+      <nav id="navbarShopCo" class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid text-center">
           <a class="navbar-brand" href="Home.html"><h1 class="logo">SHOP.CO</h1></a>
           <button
@@ -33,33 +33,28 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Shop </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Accessories</a></li>
-                  <li><a class="dropdown-item" href="#">Care</a></li>
-                  <li><a class="dropdown-item" href="#">Electronics</a></li>
-                  <li><a class="dropdown-item" href="#">Furniture</a></li>
-                  <li><a class="dropdown-item" href="#">Groceries</a></li>
-                  <li><a class="dropdown-item" href="#">Mens</a></li>
-                  <li><a class="dropdown-item" href="#">Vehicles</a></li>
-                  <li><a class="dropdown-item" href="#">Women</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?men">Men</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?women">Women</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?accessories">Accessories</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?care">Care</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?electronics">Electronics</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?furniture">Furniture</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?groceries">Groceries</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?vehicles">Vehicles</a></li>
                   <!-- <li><hr class="dropdown-divider" /></li> -->
                   <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="Home.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">On Sale</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">New Arrivals</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Brands</a>
+                <a class="nav-link" href="#contactUs">Contact Us</a>
               </li>
             </ul>
             <form class="d-flex position-relative" role="search">
               <input
+                id="searchInput"
                 class="searchButton form-control rounded-pill align-self-center"
                 type="search"
                 placeholder="Search for products..."
@@ -198,8 +193,7 @@
         <!-- Footer -->
       </div>
     </div>
-    <footer class="container-fluid mt-5">
-      <div class="position-relative">
+      <div id="contactUs" class="position-relative">
         <div class="footerHero position-absolute top-0 start-50 translate-middle bg-black rounded-4" id="offer">
           <div class="row">
             <div class="col-7">

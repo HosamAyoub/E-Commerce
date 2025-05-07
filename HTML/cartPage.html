@@ -23,53 +23,45 @@
   </div>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top">
+  <nav id="navbarShopCo" class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid text-center">
-      <a class="navbar-brand" href="Home.html">
-        <h1 class="logo">SHOP.CO</h1>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="Home.html"><h1 class="logo">SHOP.CO</h1></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Shop </a>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Shop </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Accessories</a></li>
-              <li><a class="dropdown-item" href="#">Care</a></li>
-              <li><a class="dropdown-item" href="#">Electronics</a></li>
-              <li><a class="dropdown-item" href="#">Furniture</a></li>
-              <li><a class="dropdown-item" href="#">Groceries</a></li>
-              <li><a class="dropdown-item" href="#">Mens</a></li>
-              <li><a class="dropdown-item" href="#">Vehicles</a></li>
-              <li><a class="dropdown-item" href="#">Women</a></li>
+              <li><a class="dropdown-item" href="shopPage.html?men">Men</a></li>
+              <li><a class="dropdown-item" href="shopPage.html?women">Women</a></li>
+              <li><a class="dropdown-item" href="shopPage.html?accessories">Accessories</a></li>
+              <li><a class="dropdown-item" href="shopPage.html?care">Care</a></li>
+              <li><a class="dropdown-item" href="shopPage.html?electronics">Electronics</a></li>
+              <li><a class="dropdown-item" href="shopPage.html?furniture">Furniture</a></li>
+              <li><a class="dropdown-item" href="shopPage.html?groceries">Groceries</a></li>
+              <li><a class="dropdown-item" href="shopPage.html?vehicles">Vehicles</a></li>
               <!-- <li><hr class="dropdown-divider" /></li> -->
               <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="Home.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" onclick="passProductInfo(2)">On Sale</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">New Arrivals</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Brands</a>
+          <li>
+            <a class="nav-link" href="#contactUs">Contact Us</a>
           </li>
         </ul>
-        <form class="d-flex position-relative" role="search">
-          <input class="searchButton form-control rounded-pill align-self-center" type="search"
-            placeholder="Search for products..." aria-label="Search" />
-          <button class="btn position-absolute start-0 align-self-center" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
+        
         <div class="d-flex justify-content-center">
           <a href="cartPage.html">
             <i class="navbarIcons fa-solid fa-cart-shopping fa-lg"></i>
@@ -163,7 +155,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="container-fluid">
+  <footer id="contactUs" class="container-fluid">
     <div class="position-relative">
       <div class="footerHero position-absolute top-0 start-50 translate-middle bg-black rounded-4" id="offer">
         <div class="row">

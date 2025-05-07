@@ -261,6 +261,9 @@ topSelling.addEventListener("click", function () {
   topSelling.style.display = "none";
 });
 
+
+
+/*********************************** Search *****************************************/
 let searchInput = document.getElementById("searchInput") ?? "";
 let searchedProductsList = [];
 
