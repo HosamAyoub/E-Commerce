@@ -74,6 +74,86 @@
       </div>
     </div>
   </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce</title>
+    <link rel="stylesheet" href="../Styles/CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="../Styles/CSS/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../Styles/Home.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbarShopCo" class="navbar navbar-expand-lg sticky-top">
+      <div class="container-fluid text-center">
+        <a class="navbar-brand" href="Home.html"><h1 class="logo">SHOP.CO</h1></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Shop </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="shopPage.html?men">Men</a></li>
+                <li><a class="dropdown-item" href="shopPage.html?women">Women</a></li>
+                <li><a class="dropdown-item" href="shopPage.html?accessories">Accessories</a></li>
+                <li><a class="dropdown-item" href="shopPage.html?care">Care</a></li>
+                <li><a class="dropdown-item" href="shopPage.html?electronics">Electronics</a></li>
+                <li><a class="dropdown-item" href="shopPage.html?furniture">Furniture</a></li>
+                <li><a class="dropdown-item" href="shopPage.html?groceries">Groceries</a></li>
+                <li><a class="dropdown-item" href="shopPage.html?vehicles">Vehicles</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#newArrivals">New Arrivals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#topSelling">Top Selling</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contactUs">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex justify-content-center searchForm" role="search">
+            <div class="position-relative">
+              <input
+                id="searchInput"
+                class="searchButton form-control rounded-pill align-self-center"
+                type="search"
+                placeholder="Search for products..."
+                aria-label="Search"
+              />
+              <button id="searchIcon" class="searchIcon btn position-absolute border-0 outline-0" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </form>
+          <div class="d-flex justify-content-center">
+            <a href="cartPage.html">
+              <i class="navbarIcons fa-solid fa-cart-shopping fa-lg"></i>
+            </a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
+              <i class="navbarIcons fa-regular fa-circle-user fa-lg"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
   <div data-bs-spy="scroll" data-bs-target="#navbarShopCo" data-bs-root-margin="0px 0px -40%"
     data-bs-smooth-scroll="true" class="" tabindex="0">
@@ -170,12 +250,19 @@
     <div id="cart-dialog" class="alert text-center"
       style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999"></div>
 
-    <!-- Dialog for Loggingin -->
-    <div id="loginMessage" class="alert alert-success text-center"
-      style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999;">
+    <div id="loginMessage" style="display: none; position: fixed;
+  top: 20px;
+right: 20px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+">
       User logged in successfully!
     </div>
-
 
     <!-- Carousels -->
     <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -199,6 +286,33 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+      <!-- Carousels -->
+      <div id="contactUs" class="position-relative">
+        <div class="d-flex justify-content-center mb-4 position-relative">
+          <h2 class="happyCustomers">OUR HAPPY CUSTOMERS</h2>
+          <div class="position-absolute end-0 top-50 translate-middle-y d-flex gap-2 me-3">
+            <button class="carousel-control-prev position-static" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next position-static" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div id="carouselSection1" class="carousel-item active"></div>
+            <div id="carouselSection2" class="carousel-item"></div>
+            <div id="carouselSection3" class="carousel-item"></div>
+            <div id="carouselSection4" class="carousel-item"></div>
+            <div id="carouselSection5" class="carousel-item"></div>
+            <div id="carouselSection6" class="carousel-item"></div>
+          </div>
+        </div>
+      </div>
 
     <!-- Footer -->
     <footer id="contactUs" class="container-fluid">
