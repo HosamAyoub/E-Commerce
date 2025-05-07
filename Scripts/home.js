@@ -57,10 +57,11 @@ function displayProducts(num, arr, section) {
   const cards = document.getElementById(section);
   for (i = showedProducts; i < showedProducts + num && i < arr.length; i++) {
     cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-    <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><img src="${arr[i].thumbnail
-      }" class="card-img-top" alt="${arr[i].title}" style="background-color: #f0eeed; border-radius: 15px;"/></a>
+    <a id="clickedProduct" href="productDetails.html" onclick="passProductInfo('${i}')"><img src="${arr[i].thumbnail}" class="card-img-top" alt="${
+      arr[i].title
+    }" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
-      <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${i}')"><h5 class="card-title">${arr[i].title}</h5></a>
+      <a id="clickedProduct" href="productDetails.html" onclick="passProductInfo('${i}')"><h5 class="card-title">${arr[i].title}</h5></a>
       <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
       <div class="starsContainer d-flex align-items-center justify-content-between" id="starsContainer">
         <div class="d-flex">${displayRate(arr[i].rating.toFixed(1))}</div>
@@ -207,8 +208,8 @@ function showDeleteFromCartDialog(productName) {
   }, 3000);
 }
 
-function passProductInfo(element) {
-  localStorage.setItem("clickedProduct", JSON.stringify(products[element]));
+function passProductInfo(index) {
+  localStorage.setItem("clickedProduct", JSON.stringify(products[index]));
 }
 
 function getTopReviews() {
@@ -227,7 +228,7 @@ function displayCarouselRates(section) {
   let content = `<div class="row justify-content-center" id="reviews">`;
   for (let index = 0; index < 4; index++) {
     content += `
-                            <div class="col-3">
+                            <div class="col-lg-3 col-md-4 col-sm-12">
                                 <div id="review">
                                     <div class="d-flex justify-content-between">
                                         <div class="d-flex my-2">${displayRate(topReviewsList[topReviewsList.length - 1].rating)}</div>
@@ -271,6 +272,7 @@ topSelling.addEventListener("click", function () {
 });
 
 let searchInput = document.getElementById("searchInput") ?? "";
+let searchIcon = document.getElementById("searchIcon");
 let searchedProductsList = [];
 
 searchInput.addEventListener("keypress", function (event) {
@@ -280,6 +282,22 @@ searchInput.addEventListener("keypress", function (event) {
     window.location.href = "shopPage.html?search";
     localStorage.setItem("searchText", searchText);
   }
+});
+
+searchIcon.addEventListener("click", function (event) {
+  searchText = searchInput.value.toUpperCase();
+  console.log(searchText);
+  event.preventDefault();
+  window.location.href = "shopPage.html?search";
+  localStorage.setItem("searchText", searchText);
+});
+
+searchIcon.addEventListener("click", function (event) {
+  searchText = searchInput.value.toUpperCase();
+  console.log(searchText);
+  event.preventDefault();
+  window.location.href = "shopPage.html?search";
+  localStorage.setItem("searchText", searchText);
 });
 
 
