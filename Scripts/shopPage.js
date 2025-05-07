@@ -14,6 +14,8 @@ const GeneralCategories = {
 
 
 function passCategory(category){
+  console.log("Hellooooooooooooo");
+  
     let categorizedList = [];
     for (const [key, value] of Object.entries(GeneralCategories)){ 
         if(key === category){
@@ -99,7 +101,7 @@ function updateSlider() {
 
 rangeMin.addEventListener('input', updateSlider);
 rangeMax.addEventListener('input', updateSlider);
-window.addEventListener('DOMContentLoaded', updateSlider);
+// window.addEventListener('DOMContentLoaded', updateSlider);
 
 
 
