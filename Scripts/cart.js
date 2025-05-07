@@ -43,9 +43,9 @@ function renderCartItems(cart) {
   cart.forEach((item) => {
     const itemElement = document.createElement("div");
     itemElement.className = "cart-item d-flex align-items-center justify-content-between";
-  
+
     const itemTotal = item.price * item.quantity;
-  
+
     itemElement.innerHTML = `
       <div class="d-flex align-items-center">
         <img src="${item.image}" class="cart-img me-3" alt="${item.title}" />
@@ -64,12 +64,12 @@ function renderCartItems(cart) {
         </div>
       </div>
     `;
-  
+
     cartItemsContainer.appendChild(itemElement);
-  
+
     const qtySpan = itemElement.querySelector(".quantity-control .item-qty");
     const totalSpan = itemElement.querySelector(".item-total");
-  
+
     // Delete item
     itemElement.querySelector(".btn-trash").addEventListener("click", () => {
       cart = cart.filter((i) => i.id !== item.id);
@@ -77,7 +77,7 @@ function renderCartItems(cart) {
       renderCartItems(cart);
       updateSummary(cart);
     });
-  
+
     // Increase quantity
     itemElement.querySelector(".increase-btn").addEventListener("click", () => {
       item.quantity += 1;
@@ -86,7 +86,7 @@ function renderCartItems(cart) {
       localStorage.setItem("cart", JSON.stringify(cart));
       updateSummary(cart);
     });
-  
+
     // Decrease quantity
     itemElement.querySelector(".decrease-btn").addEventListener("click", () => {
       if (item.quantity > 1) {
@@ -98,7 +98,7 @@ function renderCartItems(cart) {
       }
     });
   });
-  
+
 }
 
 function updateSummary(cart) {
