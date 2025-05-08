@@ -16,38 +16,38 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
-  .auth-container {
-    max-width: 40rem;
-    margin: auto;
-    margin-top: 8rem;
-    background: #fff;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  }
-  .auth-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 25px;
-  }
-  .form-control {
-    border-radius: 10px;
-  }
-  .btn-primary {
-    background-color: #000;
-    border: none;
-    border-radius: 10px;
-  }
-  .btn-primary:hover {
-    background-color: #333;
-  }
-  .text-link {
-    text-align: center;
-    margin-top: 15px;
-  }
+.auth-container {
+  max-width: 40rem;
+  margin: auto;
+  margin-top: 8rem;
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.auth-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.form-control {
+  border-radius: 10px;
+}
+.btn-primary {
+  background-color: #000;
+  border: none;
+  border-radius: 10px;
+}
+.btn-primary:hover {
+  background-color: #333;
+}
+.text-link {
+  text-align: center;
+  margin-top: 15px;
+}
 
-  /* Navbar */
+/* Navbar */
 
 nav {
   background-color: var(--white-color);
@@ -123,4 +123,8 @@ nav form button svg {
     top: -2px;
     left: 10px;
   }
+}
+
+.loginButton:active {
+  background-color: black !important;
 }

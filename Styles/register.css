@@ -47,9 +47,9 @@ body {
   margin-top: 15px;
 }
 
- /* Navbar */
+/* Navbar */
 
- nav {
+nav {
   background-color: var(--white-color);
 }
 
@@ -123,4 +123,8 @@ nav form button svg {
     top: -2px;
     left: 10px;
   }
+}
+
+.loginButton:active {
+  background-color: black !important;
 }
