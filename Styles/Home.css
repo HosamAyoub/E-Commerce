@@ -53,14 +53,6 @@ nav {
   background-color: var(--gray-color1);
 }
 
-.searchIcon {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  top: 7px;
-  left: 12px;
-}
-
 .searchIcon:active {
   border: none !important;
   outline: none !important;
@@ -82,17 +74,42 @@ nav form button svg {
   margin: 1vw 0.5vw;
 }
 
+.searchIcon {
+  position: absolute;
+  left: 1em; /* Relative to font size */
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent !important;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em; /* Relative to input font size */
+}
+
+.searchButton {
+  font-size: clamp(1rem, 1.2vw, 1.25rem); /* Responsive font size */
+  padding: 0.25rem 1.5rem; /* Responsive padding */
+  padding-left: 2.5rem !important; /* Space for icon */
+}
+
+.fa-magnifying-glass {
+  font-size: 1rem; /* Inherits from searchIcon */
+}
+
+/* Optional: Hover effects */
+.searchIcon:hover .fa-magnifying-glass {
+  color: #666;
+}
 @media screen and (max-width: 992px) {
   .active {
     border-bottom: none;
     text-decoration: none;
     text-align: center;
   }
-  .searchIcon {
+  /* .searchIcon {
     position: absolute;
-    top: -2px;
-    left: 10px;
-  }
+    top: 0.01vw;
+    left: 1vw;
+  } */
 }
 
 /* Main */

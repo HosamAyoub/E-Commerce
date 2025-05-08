@@ -107,12 +107,15 @@ function passMinAndMaxPrices(minPrice, maxPrice) {
   displayProducts(filteredList);
 }
 
+
+/******************************** Display **************************************/
+
 function displayProducts(arr) {
   const cards = document.getElementById("filteredProducts");
   cards.innerHTML = "";
   for (let i = 0; i < arr.length; i++) {
     cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
-    <a id="clickedProduct" href="#" onclick="passProductInfo('${productsList.indexOf(arr[i])}')"><img src="${
+    <a id="clickedProduct" href="../HTML/productDetails.html" onclick="passProductInfo('${productsList.indexOf(arr[i])}')"><img src="${
       arr[i].thumbnail
     }" class="card-img-top" alt="${arr[i].title}" style="background-color: #f0eeed; border-radius: 15px;"/></a>
     <div class="card-body text-start">
@@ -242,6 +245,18 @@ function showAddToCartDialog(productName) {
   }, 3000);
 }
 
+function showDeleteFromCartDialog(productName) {
+  const dialog = document.getElementById("cart-dialog");
+  dialog.textContent = `"${productName}" has been deleted from your cart`;
+  dialog.classList.remove("alert-success");
+  dialog.classList.add("alert-danger");
+  dialog.style.display = "block";
+
+  setTimeout(() => {
+    dialog.style.display = "none";
+  }, 3000);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   let urlParams = new URLSearchParams(window.location.search).toString();
   urlParams = urlParams.substring(0, urlParams.length - 1);
@@ -255,6 +270,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.getElementById("logoutLink").addEventListener("click", function (e) {
+  e.preventDefault();
+  const user = sessionStorage.getItem("loggedInUser");
+  if (user) {
+    const modal = new bootstrap.Modal(document.getElementById('logoutModal'));
+    modal.show();
+  } else {
+    window.location.href = "login.html";
+  }
+});
 
 document.getElementById("confirmLogoutBtn").addEventListener("click", function () {
   sessionStorage.removeItem("loggedInUser");
