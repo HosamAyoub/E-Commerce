@@ -84,7 +84,6 @@ nav form button svg {
   margin: 1vw 0.5vw;
 }
 
-
 /* Breadcrumb */
 .breadcrumb {
   font-size: 15px;
@@ -289,13 +288,17 @@ footer svg {
   color: var(--black-color);
 }
 
+.footerLogo {
+  font-weight: 800;
+}
+
 .footerHero {
   /* margin-top: 20vh; */
   width: 85vw;
   padding: 4vw 3vw !important;
 }
 
-.footerHero>div>div>h1 {
+.footerHero > div > div > h1 {
   font-weight: 800;
 }
 

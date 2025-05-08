@@ -235,7 +235,7 @@ function displayRateHTML() {
                                     </div>
                                     <div class="d-flex">
                                         <h4>${review.reviewerName}</h4>
-                                        <i class="fa-solid fa-circle-check ms-2 mt-2" style="color: #3fa654;"></i>
+                                        <i class="fa-solid fa-circle-check ms-2 mt-2" style="color: #3fa654 !important;"></i>
                                     </div>
                                     <p>${review.comment}</p>
                                     <p class="mt-3 text-black-50">Posted on ${review.date}</p>
@@ -370,12 +370,11 @@ productDetailsElement = document.getElementById("Product_Details");
 ratingReviewsElement = document.getElementById("Rating_And_Reviews");
 FAQsElement = document.getElementById("FAQs");
 
-
 document.getElementById("logoutLink").addEventListener("click", function (e) {
   e.preventDefault();
   const user = sessionStorage.getItem("loggedInUser");
   if (user) {
-    const modal = new bootstrap.Modal(document.getElementById('logoutModal'));
+    const modal = new bootstrap.Modal(document.getElementById("logoutModal"));
     modal.show();
   } else {
     window.location.href = "login.html";
