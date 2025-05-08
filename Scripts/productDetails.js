@@ -15,8 +15,8 @@ function displayItem() {
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="my-3">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="Home.html" style="text-decoration: none; color: black">Home</a></li>
-                <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: black">Shop</a></li>
+                <li class="breadcrumb-item"><a href="../HTML/Home.html" style="text-decoration: none; color: black">Home</a></li>
+                <li class="breadcrumb-item"><a href="../HTML/shopPage.html" style="text-decoration: none; color: black">Shop</a></li>
                 <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: black">${product.category}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">${product.title}</li>
             </ol>
@@ -384,4 +384,18 @@ document.getElementById("logoutLink").addEventListener("click", function (e) {
 document.getElementById("confirmLogoutBtn").addEventListener("click", function () {
   sessionStorage.removeItem("loggedInUser");
   window.location.href = "login.html";
+});
+
+
+/****************************** Search **********************************/
+let searchInput = document.getElementById("searchInput") ?? "";
+let searchedProductsList = [];
+
+searchInput.addEventListener("keypress", function (event) {
+  searchText = searchInput.value.toUpperCase();
+  if (event.key === "Enter") {
+    event.preventDefault();
+    window.location.href = "shopPage.html?search";
+    localStorage.setItem("searchText", searchText);
+  }
 });
