@@ -143,6 +143,9 @@ function showConfirmDialog(userName) {
   }, 3000);
 }
 
+
+
+
 document.getElementById("confirmLogoutBtn").addEventListener("click", function () {
   sessionStorage.removeItem("loggedInUser");
   window.location.href = "login.html";

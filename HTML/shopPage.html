@@ -11,70 +11,76 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="../Styles/shopPage.css" />
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/> -->
+
   <title>Product Details</title>
+ 
+
 </head>
 
-<body>
-  <!-- Nav Bar -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container-fluid text-center">
-      <a class="navbar-brand" href="Home.html">
-        <h1 class="logo">SHOP.CO</h1>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Shop </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" onclick="passCategory('men')">Men</a></li>
-              <li><a class="dropdown-item" href="#" onclick="passCategory('women')">Women</a></li>
-              <li><a class="dropdown-item" href="#" onclick="passCategory('accessories')">Accessories</a></li>
-              <li><a class="dropdown-item" href="#" onclick="passCategory('care')">Care</a></li>
-              <li><a class="dropdown-item" href="#" onclick="passCategory('electronics')">Electronics</a></li>
-              <li><a class="dropdown-item" href="#" onclick="passCategory('furniture')">Furniture</a></li>
-              <li><a class="dropdown-item" href="#" onclick="passCategory('groceries')">Groceries</a></li>
-              <li><a class="dropdown-item" href="#" onclick="passCategory('vehicles')">Vehicles</a></li>
-              <!-- <li><hr class="dropdown-divider" /></li> -->
-              <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" onclick="passProductInfo(2)">On Sale</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">New Arrivals</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Brands</a>
-          </li>
-        </ul>
-        <form class="d-flex position-relative" role="search">
-          <input id="searchInput" class="searchButton form-control rounded-pill align-self-center" type="search"
-            placeholder="Search for products..." aria-label="Search" />
-          <button class="btn position-absolute start-0 align-self-center" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-        <div class="d-flex justify-content-center">
-          <a href="cartPage.html">
-            <i class="navbarIcons fa-solid fa-cart-shopping fa-lg"></i>
-          </a>
-          <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
-            <i class="navbarIcons fa-regular fa-circle-user fa-lg"></i>
-          </a>
+  <body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container-fluid text-center">
+        <a class="navbar-brand" href="Home.html"><h1 class="logo">SHOP.CO</h1></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Shop </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" onclick="passCategory('men')">Men</a></li>
+                <li><a class="dropdown-item" href="#" onclick="passCategory('women')">Women</a></li>
+                <li><a class="dropdown-item" href="#" onclick="passCategory('accessories')">Accessories</a></li>
+                <li><a class="dropdown-item" href="#" onclick="passCategory('care')">Care</a></li>
+                <li><a class="dropdown-item" href="#" onclick="passCategory('electronics')">Electronics</a></li>
+                <li><a class="dropdown-item" href="#" onclick="passCategory('furniture')">Furniture</a></li>
+                <li><a class="dropdown-item" href="#" onclick="passCategory('groceries')">Groceries</a></li>
+                <li><a class="dropdown-item" href="#" onclick="passCategory('vehicles')">Vehicles</a></li>
+                <!-- <li><hr class="dropdown-divider" /></li> -->
+                <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="#contactUs">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex position-relative" role="search">
+            <input
+              id="searchInput"
+              class="searchButton form-control rounded-pill align-self-center"
+              type="search"
+              placeholder="Search for products..."
+              aria-label="Search"
+            />
+            <button class="btn position-absolute start-0 align-self-center" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <div class="d-flex justify-content-center">
+            <a href="cartPage.html">
+              <i class="navbarIcons fa-solid fa-cart-shopping fa-lg"></i>
+            </a>
+            <a href="login.html">
+              <i class="navbarIcons fa-regular fa-circle-user fa-lg"></i>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <!-- Breadcrumb -->
   <nav aria-label="breadcrumb">
@@ -206,102 +212,75 @@
   <div id="cart-dialog" class="alert text-center"
     style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999"></div>
 
-  <!-- Footer -->
-  <footer class="container-fluid">
-    <div class="position-relative">
-      <div class="footerHero position-absolute top-0 start-50 translate-middle bg-black rounded-4" id="offer">
-        <div class="row">
-          <div class="col-7">
-            <h1 class="text-white">STAY UPTO DATE ABOUT OUR LATEST OFFERS</h1>
-          </div>
-          <div class="col-5" id="toEmail">
-            <div class="d-flex">
-              <i class="footericon fa-solid fa-envelope"></i>
-              <input type="email" class="form-control" placeholder="Enter your email address" />
+    <!-- Footer -->
+    <footer id="contactUs" class="container-fluid">
+      <div class="position-relative">
+        <div class="footerHero position-absolute top-0 start-50 translate-middle bg-black rounded-4" id="offer">
+          <div class="row">
+            <div class="col-lg-7 col-sm-12">
+              <h1 class="text-white">STAY UPTO DATE ABOUT OUR LATEST OFFERS</h1>
             </div>
-            <div>
-              <a href="#">
-                <p>Subscribe to Newsletter</p>
-              </a>
+            <div class="col-lg-5 col-sm-12" id="toEmail">
+              <div class="d-flex">
+                <i class="footericon fa-solid fa-envelope"></i>
+                <input type="email" class="form-control" placeholder="Enter your email address" />
+              </div>
+              <div>
+                <a href="#"><p>Subscribe to Newsletter</p></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="row pt-5 m-5">
-      <div class="col-3 pt-5 mt-5">
-        <h1>SHOP.CO</h1>
-        <p>We have all products that suits your need.</p>
-        <div>
-          <a href="#"><i class="ms-2 fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="ms-2 fa-brands fa-facebook"></i></a>
-          <a href="#"><i class="ms-2 fa-brands fa-instagram"></i></a>
+      <div class="footerInfo row pt-5 m-5">
+        <div class="col-lg-3 col-sm-6 pt-5 mt-5">
+          <h1>SHOP.CO</h1>
+          <p class="footerLogoInfo">We have all products that suits your need.</p>
+          <div>
+            <a href="#"><i class="ms-2 fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="ms-2 fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="ms-2 fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6 pt-5 mt-5">
+          <h5>COMPANY</h5>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>About</p></a>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Features</p></a>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Works</p></a>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Career</p></a>
+        </div>
+        <div class="col-lg-3 col-sm-6 pt-5 mt-5">
+          <h5>HELP</h5>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Customers Support</p></a>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Delivery Details</p></a>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Terms & Conditions</p></a>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Privacy Poicy</p></a>
+        </div>
+        <div class="col-lg-3 col-sm-6 pt-5 mt-5">
+          <h5>FAQ</h5>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Acount</p></a>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Mange Deliveries</p></a>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Orders</p></a>
+          <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)"><p>Payments</p></a>
         </div>
       </div>
 
-      <div class="col-3 pt-5 mt-5">
-        <h5>COMPANY</h5>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>About</p>
-        </a>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Features</p>
-        </a>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Works</p>
-        </a>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Career</p>
-        </a>
-      </div>
-      <div class="col-3 pt-5 mt-5">
-        <h5>HELP</h5>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Customers Support</p>
-        </a>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Delivery Details</p>
-        </a>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Terms & Conditions</p>
-        </a>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Privacy Poicy</p>
-        </a>
-      </div>
-      <div class="col-3 pt-5 mt-5">
-        <h5>FAQ</h5>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Acount</p>
-        </a>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Mange Deliveries</p>
-        </a>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Orders</p>
-        </a>
-        <a href="#" class="text-decoration-none" style="color: rgb(113, 112, 112)">
-          <p>Payments</p>
-        </a>
-      </div>
-    </div>
-
-    <div class="mt-3 p-4">
-      <hr />
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="align-self-center">
-          <p>Shop.Co &copy; 2000-2025. All Rights Reserved</p>
-        </div>
-        <div class="align-self-center">
-          <img src="../Images/FooterIcons.svg" alt="" />
+      <div class="mt-3 p-4">
+        <hr />
+        <div class="d-flex justify-content-between align-items-center row">
+          <div class="align-self-center text-lg-start text-sm-center col-lg-6 col-sm-12">
+            <p>Shop.Co &copy; 2000-2025. All Rights Reserved</p>
+          </div>
+          <div class="align-self-center text-lg-end text-sm-center col-lg-6 col-sm-12">
+            <img src="../Images/FooterIcons.svg" alt="" />
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-</body>
-<script src="../Scripts/JS/bootstrap.bundle.min.js"></script>
-<script src="../Scripts/JS/all.min.js"></script>
-<script src="../Scripts/shopPage.js"></script>
-
+    </footer>
+  </body>
+  <script src="../Scripts/JS/bootstrap.bundle.min.js"></script>
+  <script src="../Scripts/JS/all.min.js"></script>
+  <script src="../Scripts/shopPage.js"></script>
 </html>
