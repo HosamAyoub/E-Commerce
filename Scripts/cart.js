@@ -144,7 +144,16 @@ function showConfirmDialog(userName) {
 }
 
 
-
+document.getElementById("logoutLink").addEventListener("click", function (e) {
+  e.preventDefault();
+  const user = sessionStorage.getItem("loggedInUser");
+  if (user) {
+    const modal = new bootstrap.Modal(document.getElementById('logoutModal'));
+    modal.show();
+  } else {
+    window.location.href = "login.html";
+  }
+});
 
 document.getElementById("confirmLogoutBtn").addEventListener("click", function () {
   sessionStorage.removeItem("loggedInUser");

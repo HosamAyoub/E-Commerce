@@ -381,11 +381,11 @@ document.getElementById("logoutLink").addEventListener("click", function (e) {
     window.location.href = "login.html";
   }
 });
+
 document.getElementById("confirmLogoutBtn").addEventListener("click", function () {
   sessionStorage.removeItem("loggedInUser");
   window.location.href = "login.html";
 });
-
 
 /****************************** Search **********************************/
 let searchInput = document.getElementById("searchInput") ?? "";

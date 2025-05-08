@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const user = sessionStorage.getItem("loggedInUser");
-
   const loginSuccess = sessionStorage.getItem("loginSuccess");
   if (loginSuccess) {
     showLoginMessage();
