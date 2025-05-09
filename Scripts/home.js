@@ -18,7 +18,7 @@ const GeneralCategories = {
 };
 
 let i = 0;
-let showedProducts = 0;
+let showedProducts = 22;
 let clothesProducts = [];
 let products = [];
 let topReviewsList = [];
@@ -34,8 +34,8 @@ async function fetchData() {
       return product;
   });
   products = data.products.filter((product) => product.images.length > 2);
-  displayProducts(8, products, "topSellingCards");
   displayProducts(8, products, "newArrivalCards");
+  displayProducts(8, products, "topSellingCards");
   getTopReviews();
   topReviewsList = convertDate(topReviewsList);
   // console.log(topReviewsList);
