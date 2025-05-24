@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('loginForm');
-  const alertBox = document.getElementById('loginAlert');
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("loginForm");
+  const alertBox = document.getElementById("loginAlert");
   const emailInput = form.email;
   const passwordInput = form.password;
 
@@ -18,37 +18,37 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const toggleValidation = (input, isValid) => {
-    input.classList.toggle('is-valid', isValid);
-    input.classList.toggle('is-invalid', !isValid);
+    input.classList.toggle("is-valid", isValid);
+    input.classList.toggle("is-invalid", !isValid);
   };
 
-  emailInput.addEventListener('input', validateEmail);
-  passwordInput.addEventListener('input', validatePassword);
+  emailInput.addEventListener("input", validateEmail);
+  passwordInput.addEventListener("input", validatePassword);
 
-  form.onsubmit = e => {
+  form.onsubmit = (e) => {
     e.preventDefault();
 
     const isEmailValid = validateEmail();
     const isPasswordValid = validatePassword();
 
     if (!isEmailValid || !isPasswordValid) {
-      form.classList.add('was-validated');
+      form.classList.add("was-validated");
       return;
     }
 
     const email = emailInput.value.trim();
     const password = passwordInput.value;
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(u => u.email === email && u.password === password);
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find((u) => u.email === email && u.password === password);
 
     if (user) {
       sessionStorage.setItem("loggedInUser", JSON.stringify(user));
       sessionStorage.setItem("loginSuccess", "true");
-      alertBox.classList.add('d-none');
-      window.location.href = "home.html";
+      alertBox.classList.add("d-none");
+      window.location.href = "Home.html";
     } else {
-      const userExists = users.some(u => u.email === email); 
+      const userExists = users.some((u) => u.email === email);
 
       if (userExists) {
         alertBox.textContent = "Incorrect password.";
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       alertBox.className = "alert alert-danger mt-2";
-      alertBox.classList.remove('d-none');
+      alertBox.classList.remove("d-none");
     }
   };
 });
