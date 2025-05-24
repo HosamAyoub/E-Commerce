@@ -15,7 +15,7 @@ function displayItem() {
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="my-3">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="Home.html" style="text-decoration: none; color: black">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.html" style="text-decoration: none; color: black">Home</a></li>
                 <li class="breadcrumb-item"><a href="shopPage.html" style="text-decoration: none; color: black">Shop</a></li>
                 <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: black">${product.category}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">${product.title}</li>

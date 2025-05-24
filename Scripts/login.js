@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sessionStorage.setItem("loggedInUser", JSON.stringify(user));
       sessionStorage.setItem("loginSuccess", "true");
       alertBox.classList.add("d-none");
-      window.location.href = "Home.html";
+      window.location.href = "index.html";
     } else {
       const userExists = users.some((u) => u.email === email);
 
