@@ -1,13 +1,7 @@
-# E-Commerece
-
-ITI Project
-You can view the website from [Here](https://hosamayoub.github.io/E-Commerce/)
 # E-Commerce Website
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://hosamayoub.github.io/E-Commerce/)  
-A responsive e-commerce website built for learning client-side web development.  
-
-![Preview](https://img.shields.io/badge/Preview-Desktop%20%26%20Mobile-blueviolet)  
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-blue)](https://hosamayoub.github.io/E-Commerce/)  
+A responsive e-commerce website built for learning (ITI) client-side web development. 
 
 ## Features
 - **Product Listings**: Display products with images, prices, and descriptions.
