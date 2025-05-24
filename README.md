@@ -12,7 +12,7 @@ A responsive e-commerce website built for learning (ITI) client-side web develop
 
 ## Technologies Used
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Framework**: [Bootstrap 5](https://getbootstrap.com/)
+- **Framework**: Bootstrap 5
 - **Version Control**: Git & GitHub
 - **Hosting**: GitHub Pages
 
