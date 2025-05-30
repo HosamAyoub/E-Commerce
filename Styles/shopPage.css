@@ -195,6 +195,10 @@ footer {
   background-color: #e1e3e6;
 }
 
+.footerLogo {
+  font-weight: 800;
+}
+
 #offer {
   padding: 1.5rem 2rem;
   border-radius: 10px;

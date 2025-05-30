@@ -18,7 +18,7 @@ const GeneralCategories = {
 };
 
 let i = 0;
-let showedProducts = 0;
+let showedProducts = 22;
 let clothesProducts = [];
 let products = [];
 let topReviewsList = [];
@@ -34,8 +34,8 @@ async function fetchData() {
       return product;
   });
   products = data.products.filter((product) => product.images.length > 2);
-  displayProducts(8, products, "topSellingCards");
   displayProducts(8, products, "newArrivalCards");
+  displayProducts(8, products, "topSellingCards");
   getTopReviews();
   topReviewsList = convertDate(topReviewsList);
   // console.log(topReviewsList);
@@ -236,8 +236,10 @@ function displayCarouselRates(section) {
                                         <h4>${topReviewsList[topReviewsList.length - 1].reviewerName}</h4>
                                         <i class="fa-solid fa-circle-check ms-2 mt-2" style="color: #3fa654;"></i>
                                     </div>
-                                    <p>${topReviewsList[topReviewsList.length - 1].comment}</p>
+                                    <div class="d-flex flex-column align-items-start">
+                                    <p class="pt-2">${topReviewsList[topReviewsList.length - 1].comment}</p>
                                     <p class="mt-3 text-black-50">Posted on ${topReviewsList[topReviewsList.length - 1].date}</p>
+                                    </div>
                                 </div>
                             </div>
                         `;
@@ -268,8 +270,6 @@ topSelling.addEventListener("click", function () {
   displayProducts(8, products, "topSellingCards");
   topSelling.style.display = "none";
 });
-
-
 
 /*********************************** Search *****************************************/
 let searchInput = document.getElementById("searchInput") ?? "";
@@ -305,7 +305,7 @@ document.getElementById("logoutLink").addEventListener("click", function (e) {
   e.preventDefault();
   const user = sessionStorage.getItem("loggedInUser");
   if (user) {
-    const modal = new bootstrap.Modal(document.getElementById('logoutModal'));
+    const modal = new bootstrap.Modal(document.getElementById("logoutModal"));
     modal.show();
   } else {
     window.location.href = "login.html";
@@ -316,7 +316,6 @@ document.getElementById("confirmLogoutBtn").addEventListener("click", function (
   sessionStorage.removeItem("loggedInUser");
   window.location.href = "login.html";
 });
-
 
 function showLoginMessage() {
   const messageDiv = document.getElementById("loginMessage");

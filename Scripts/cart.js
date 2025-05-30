@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   closeBtn?.addEventListener("click", () => (topBar.style.display = "none"));
   signUpBtn?.addEventListener("click", () => {
     topBar.style.display = "none";
-    window.location.href = "../HTML/register.html";
+    window.location.href = "register.html";
   });
 });
 
@@ -101,7 +101,6 @@ function renderCartItems(cart) {
       }
     });
   });
-
 }
 
 function updateSummary(cart) {
@@ -143,12 +142,11 @@ function showConfirmDialog(userName) {
   }, 3000);
 }
 
-
 document.getElementById("logoutLink").addEventListener("click", function (e) {
   e.preventDefault();
   const user = sessionStorage.getItem("loggedInUser");
   if (user) {
-    const modal = new bootstrap.Modal(document.getElementById('logoutModal'));
+    const modal = new bootstrap.Modal(document.getElementById("logoutModal"));
     modal.show();
   } else {
     window.location.href = "login.html";

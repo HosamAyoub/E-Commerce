@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Styles/CSS/bootstrap.min.css" />
-    <link rel="stylesheet" href="../Styles/CSS/all.min.css" />
+    <link rel="stylesheet" href="Styles/CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="Styles/CSS/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../Styles/productDetails.css" />
+    <link rel="stylesheet" href="Styles/productDetails.css" />
     <title>Product Details</title>
   </head>
   <body>
     <div class="container-fluid">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg sticky-top">
+      <nav id="navbarShopCo" class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid text-center">
-          <a class="navbar-brand" href="Home.html"><h1 class="logo">SHOP.CO</h1></a>
+          <a class="navbar-brand" href="index.html"><h1 class="logo">SHOP.CO</h1></a>
           <button
             class="navbar-toggler"
             type="button"
@@ -33,41 +33,36 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Shop </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Accessories</a></li>
-                  <li><a class="dropdown-item" href="#">Care</a></li>
-                  <li><a class="dropdown-item" href="#">Electronics</a></li>
-                  <li><a class="dropdown-item" href="#">Furniture</a></li>
-                  <li><a class="dropdown-item" href="#">Groceries</a></li>
-                  <li><a class="dropdown-item" href="#">Mens</a></li>
-                  <li><a class="dropdown-item" href="#">Vehicles</a></li>
-                  <li><a class="dropdown-item" href="#">Women</a></li>
-                  <!-- <li><hr class="dropdown-divider" /></li> -->
-                  <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                  <li><a class="dropdown-item" href="shopPage.html?men">Men</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?women">Women</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?accessories">Accessories</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?care">Care</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?electronics">Electronics</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?furniture">Furniture</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?groceries">Groceries</a></li>
+                  <li><a class="dropdown-item" href="shopPage.html?vehicles">Vehicles</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">On Sale</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">New Arrivals</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Brands</a>
+                <a class="nav-link" href="#contactUs">Contact Us</a>
               </li>
             </ul>
-            <form class="d-flex position-relative" role="search">
-              <input
-                class="searchButton form-control rounded-pill align-self-center"
-                type="search"
-                placeholder="Search for products..."
-                aria-label="Search"
-              />
-              <button class="btn position-absolute start-0 align-self-center" type="submit">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
+            <form class="d-flex justify-content-center searchForm" role="search">
+              <div class="position-relative">
+                <input
+                  id="searchInput"
+                  class="searchButton form-control rounded-pill align-self-center"
+                  type="search"
+                  placeholder="Search for products..."
+                  aria-label="Search"
+                />
+                <button id="searchIcon" class="searchIcon btn position-absolute border-0 outline-0" type="submit">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
             </form>
             <div class="d-flex justify-content-center">
               <a href="cartPage.html">
@@ -89,9 +84,7 @@
               <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              Are you sure you want to log out?
-            </div>
+            <div class="modal-body">Are you sure you want to log out?</div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
               <button id="confirmLogoutBtn" type="button" class="btn btn-danger">Logout</button>
@@ -213,8 +206,6 @@
                         </div> 
                         
                     </section>   -->
-
-        
       </div>
     </div>
 
@@ -241,7 +232,7 @@
 
       <div class="footerInfo row pt-5 m-5">
         <div class="col-lg-3 col-sm-6 pt-5 mt-5">
-          <h1>SHOP.CO</h1>
+          <h1 class="footerLogo">SHOP.CO</h1>
           <p class="footerLogoInfo">We have all products that suits your need.</p>
           <div>
             <a href="#"><i class="ms-2 fa-brands fa-twitter"></i></a>
@@ -280,17 +271,20 @@
             <p>Shop.Co &copy; 2000-2025. All Rights Reserved</p>
           </div>
           <div class="align-self-center text-lg-end text-sm-center col-lg-6 col-sm-12">
-            <img src="../Images/FooterIcons.svg" alt="" />
+            <img src="Images/FooterIcons.svg" alt="" />
           </div>
         </div>
       </div>
     </footer>
     <!-- Dialog for Checkout Confirmation -->
-    <div id="cart-dialog" class="alert alert-success text-center" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999;"></div>
+    <div
+      id="cart-dialog"
+      class="alert alert-success text-center"
+      style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999"
+    ></div>
 
-
-    <script src="../Scripts/JS/bootstrap.bundle.min.js"></script>
-    <script src="../Scripts/JS/all.min.js"></script>
-    <script src="../Scripts/productDetails.js"></script>
+    <script src="Scripts/JS/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/JS/all.min.js"></script>
+    <script src="Scripts/productDetails.js"></script>
   </body>
 </html>
