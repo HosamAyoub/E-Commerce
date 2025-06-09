@@ -133,11 +133,29 @@
             <input id="promoCode" class="promo-input" type="text" placeholder="Add promo code" />
             <button type="submit" class="promo-btn">Apply</button>
           </form>
-          <button class="checkout-btn" data-bs-toggle="modal" data-bs-target="#checkoutModal">Go to Checkout<i
-              class="fas fa-arrow-right"></i></button>
+          <button class="checkout-btn" onclick="handleCheckout()">Go to Checkout <i class="fas fa-arrow-right"></i></button>
         </div>
       </div>
     </div>
+
+    <!-- Login Required Modal -->
+<div class="modal fade" id="loginRequiredModal" tabindex="-1" aria-labelledby="loginRequiredModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginRequiredModalLabel">Login Required</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        You need to be logged in to proceed to checkout.
+      </div>
+      <div class="modal-footer justify-content-center">
+        <a href="login.html" class="btn btn-dark">Go to Login Page</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <!-- Checkout Modal -->
     <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">

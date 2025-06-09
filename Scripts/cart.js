@@ -157,3 +157,16 @@ document.getElementById("confirmLogoutBtn").addEventListener("click", function (
   sessionStorage.removeItem("loggedInUser");
   window.location.href = "login.html";
 });
+
+
+function handleCheckout() {
+    const user = sessionStorage.getItem("loggedInUser"); 
+
+    if (user) {
+      const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+      checkoutModal.show();
+    } else {
+      const loginModal = new bootstrap.Modal(document.getElementById('loginRequiredModal'));
+      loginModal.show();
+    }
+  }
