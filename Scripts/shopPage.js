@@ -114,7 +114,8 @@ function displayProducts(arr) {
   const cards = document.getElementById("filteredProducts");
   cards.innerHTML = "";
   for (let i = 0; i < arr.length; i++) {
-    cards.innerHTML += `<div class="card col-lg-3 col-md-4 col-sm-12 card border-0" style="width: 18rem">
+    cards.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+    <div class="card border-0 h-100" >
     <a id="clickedProduct" href="productDetails.html" onclick="passProductInfo('${productsList.indexOf(arr[i])}')"><img src="${
       arr[i].thumbnail
     }" class="card-img-top" alt="${arr[i].title}" style="background-color: #f0eeed; border-radius: 15px;"/></a>
@@ -136,6 +137,7 @@ function displayProducts(arr) {
         </button>
       </div>
     </div>
+  </div>
   </div>`;
   }
 

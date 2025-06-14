@@ -25,21 +25,21 @@ function displayItem() {
 
 
         <!-- Images & Details Section -->
-            <section class="row" id="imagesAndDetails">
-                <div class="col-5" id="images">
+            <section class="row flex-column flex-md-row" id="imagesAndDetails">
+                <div class="col-12 col-md-5 mb-4" id="images">
                     <div class="row">
                         <div id="threeImgaes" class="col-3">
                             <img src="${product.images[0]}" class="mainImage img-fluid rounded" alt="0.png">
                             <img src="${product.images[1]}" class="mainImage img-fluid rounded" alt="0.png">
                             <img src="${product.images[2]}" class="mainImage img-fluid rounded" alt="0.png">
                         </div>
-                        <div id="oneImgae" class="col-9">
+                        <div id="oneImage" class="col-9">
                             <img src="${product.images[0]}" class="mainImage img-fluid rounded" alt="0.png">
                         </div>
                     </div>  
                 </div>
 
-                <div class="col-7" id="details">
+                <div class="col-12 col-lg-7 mt-4 mt-lg-0" id="details">
                     <h1>${product.title}</h1>
                     <div class="d-flex my-2">${displayRate(product.rating)}</div>
                     <div class="d-flex">
@@ -74,7 +74,7 @@ function displayItem() {
 
                     <hr>
                     
-                    <div class="d-flex">
+                    <div class="d-flex flex-column flex-md-row align-items-start gap-2">
                             <div class="quantity-control">
                               <button type="button" id="decreaseQty">−</button>
                               <span id="quantityValue">1</span>
@@ -83,7 +83,7 @@ function displayItem() {
 
 
                           
-                                <button class="add-to-cart-btn border-0 bg-black rounded-pill" style="color: white;" data-id="${product.id}"
+                                <button class="add-to-cart-btn border-0 bg-black rounded-pill px-4 py-2 text-white w-100 w-sm-auto" style="color: white;" data-id="${product.id}"
                                   data-title="${product.title}" data-price="${product.price}"
                                   data-image="${product.images[0]}" data-discount="${product.discountPercentage}">
                                   Add To Cart
@@ -227,7 +227,7 @@ function displayRateHTML() {
               <div class="row" id="reviews">`;
   reviewsList.forEach((review) => {
     content += `
-                            <div class="col-6">
+                            <div class="col-12 col-md-6 mb-3">
                                 <div id="review">
                                     <div class="d-flex justify-content-between">
                                         <div class="d-flex my-2">${displayRate(review.rating)}</div>

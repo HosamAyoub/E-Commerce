@@ -383,3 +383,22 @@ footer {
   margin-left: 0.25rem;
   padding: 0.75rem 12.3rem;
 }
+
+@media (max-width: 576px) {
+  .quantity-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .add-to-cart-btn {
+    width: 100% !important;
+  }
+
+  #reviews .col-12 {
+    padding: 10px;
+  }
+
+  #details h4, #details p {
+    font-size: 1rem;
+  }
+}
