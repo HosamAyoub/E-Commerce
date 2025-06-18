@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Login - SHOP.CO</title>
-    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/variables.css" />
     <title>Login - Shop.co</title>
     <link rel="stylesheet" href="Styles/CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="Styles/CSS/all.min.css" />
@@ -13,70 +12,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="Styles/login.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
+  </head>
 
-<body>
-  <!-- Navbar -->
-  <nav id="navbarShopCo" class="navbar navbar-expand-lg sticky-top">
-    <div class="container-fluid text-center">
-      <a class="navbar-brand" href="index.html"><h1 class="logo">SHOP.CO</h1></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          
-        </ul>
-        <div class="d-flex justify-content-center">
-          <a href="cartPage.html">
-            <i class="navbarIcons fa-solid fa-cart-shopping fa-lg"></i>
-          </a>
-          <a href="#" id="logoutLink" data-bs-toggle="modal" data-bs-target="#logoutModal">
-            <i class="navbarIcons fa-regular fa-circle-user fa-lg"></i>
-          </a>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbarShopCo" class="navbar navbar-expand-lg sticky-top">
+      <div class="container-fluid text-center">
+        <a class="navbar-brand" href="index.html"><h1 class="logo">SHOP.CO</h1></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <!-- <li class="nav-item dropdown"></li> -->
+
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+          </ul>
+          <div class="d-flex justify-content-center">
+            <a href="cartPage.html">
+              <i class="navbarIcons fa-solid fa-cart-shopping fa-lg navbarIcon"></i>
+            </a>
+            <a href="#" id="logoutLink" data-bs-toggle="modal" data-bs-target="#logoutModal">
+              <i class="navbarIcons fa-regular fa-circle-user fa-lg navbarIcon"></i>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
     <div class="auth-container">
-        <div class="auth-title">Login</div>
-    
-        <div id="loginAlert" class="alert alert-danger d-none" role="alert"></div>
-    
-        <form id="loginForm" class="needs-validation" novalidate>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" required />
-            <div class="invalid-feedback">Email is required.</div>
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" required />
-            <div class="invalid-feedback">Password is required.</div>
-          </div>
-          <button type="submit" class="loginButton btn btn-primary w-100">Login</button>
-        </form>
-    
-        <div class="text-link">
-          Don't have an account? <a href="register.html">Sign up</a>
+      <div class="auth-title">Login</div>
+
+      <div id="loginAlert" class="alert alert-danger d-none" role="alert"></div>
+
+      <form id="loginForm" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" required />
+          <div class="invalid-feedback">Email is required.</div>
         </div>
-      </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" required />
+          <div class="invalid-feedback">Password is required.</div>
+        </div>
+        <button type="submit" class="loginButton btn btn-primary w-100">Login</button>
+      </form>
+
+      <div class="text-link">Don't have an account? <a href="register.html">Sign up</a></div>
+    </div>
     <script src="Scripts/JS/bootstrap.bundle.min.js"></script>
     <script src="Scripts/login.js"></script>
-</body>
-
+  </body>
 </html>

@@ -16,36 +16,6 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
-.auth-container {
-  max-width: 50rem;
-  margin: auto;
-  margin-top: 30px;
-  background: #fff;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-.auth-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 25px;
-}
-.form-control {
-  border-radius: 10px;
-}
-.btn-primary {
-  background-color: #000;
-  border: none;
-  border-radius: 10px;
-}
-.btn-primary:hover {
-  background-color: #333;
-}
-.text-link {
-  text-align: center;
-  margin-top: 15px;
-}
 
 /* Navbar */
 
@@ -83,14 +53,6 @@ nav {
   background-color: var(--gray-color1);
 }
 
-.searchIcon {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  top: 7px;
-  left: 12px;
-}
-
 .searchIcon:active {
   border: none !important;
   outline: none !important;
@@ -112,16 +74,68 @@ nav form button svg {
   margin: 1vw 0.5vw;
 }
 
+.searchIcon {
+  position: absolute;
+  left: 1em; /* Relative to font size */
+  top: 50%;
+  transform: translateY(-55%);
+  background: transparent !important;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em; /* Relative to input font size */
+}
+
+.searchButton {
+  font-size: clamp(1rem, 1.2vw, 1.25rem); /* Responsive font size */
+  padding: 0.25rem 1.5rem; /* Responsive padding */
+  padding-left: 2.8rem !important; /* Space for icon */
+}
+
+.fa-magnifying-glass {
+  font-size: 1.1rem; /* Inherits from searchIcon */
+}
+
+/* Optional: Hover effects */
+.searchIcon:hover .fa-magnifying-glass {
+  color: var(--black-color);
+}
 @media screen and (max-width: 992px) {
   .active {
     border-bottom: none;
     text-decoration: none;
     text-align: center;
   }
+  /* .searchIcon {
+    position: absolute;
+    top: 0.01vw;
+    left: 1vw;
+  } */
+  .searchButton {
+    font-size: clamp(0.6rem, 0.8vw, 0.9rem); /* Responsive font size */
+    padding: 0.1rem 0.4rem; /* Responsive padding */
+    padding-left: 2rem !important; /* Space for icon */
+  }
+
   .searchIcon {
     position: absolute;
-    top: -2px;
-    left: 10px;
+    left: 0.75rem; /* Relative to font size */
+    top: 50%;
+    transform: translateY(-55%);
+    background: transparent !important;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem; /* Relative to input font size */
+  }
+
+  .fa-magnifying-glass {
+    font-size: 0.8rem; /* Inherits from searchIcon */
+  }
+  .navbar-nav .nav-item a {
+    font-size: 1rem;
+  }
+  .navbarIcon {
+    margin-top: 0.75rem;
+    font-size: 1rem;
   }
 }
 

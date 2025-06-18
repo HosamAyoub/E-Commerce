@@ -130,6 +130,13 @@ nav form button svg {
   .fa-magnifying-glass {
     font-size: 0.8rem; /* Inherits from searchIcon */
   }
+  .navbar-nav .nav-item a {
+    font-size: 1rem;
+  }
+  .navbarIcon {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+  }
 }
 
 svg {
@@ -398,7 +405,8 @@ footer {
     padding: 10px;
   }
 
-  #details h4, #details p {
+  #details h4,
+  #details p {
     font-size: 1rem;
   }
 }

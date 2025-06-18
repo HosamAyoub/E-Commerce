@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Styles/CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="Styles/CSS/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="Styles/shopPage.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="Styles/CSS/bootstrap.min.css" />
-  <link rel="stylesheet" href="Styles/CSS/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="Styles/shopPage.css" />
-
-  <title>Product Details</title>
- 
-
-</head>
+    <title>Product Details</title>
+  </head>
 
   <body>
     <!-- Nav Bar -->
@@ -53,164 +49,167 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="index.html">Home</a>
             </li>
-           
+
             <li class="nav-item">
               <a class="nav-link" href="#contactUs">Contact Us</a>
             </li>
           </ul>
-          <form class="d-flex position-relative" role="search">
-            <input
-              id="searchInput"
-              class="searchButton form-control rounded-pill align-self-center"
-              type="search"
-              placeholder="Search for products..."
-              aria-label="Search"
-            />
-            <button class="btn position-absolute start-0 align-self-center" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+          <form class="d-flex justify-content-center searchForm" role="search">
+            <div class="position-relative">
+              <input
+                id="searchInput"
+                class="searchButton form-control rounded-pill align-self-center"
+                type="search"
+                placeholder="Search for products..."
+                aria-label="Search"
+              />
+              <button id="searchIcon" class="searchIcon btn position-absolute border-0 outline-0" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
           </form>
           <div class="d-flex justify-content-center">
             <a href="cartPage.html">
-              <i class="navbarIcons fa-solid fa-cart-shopping fa-lg"></i>
+              <i class="navbarIcons fa-solid fa-cart-shopping fa-lg navbarIcon"></i>
             </a>
             <a href="#" id="logoutLink" data-bs-toggle="modal" data-bs-target="#logoutModal">
-              <i class="navbarIcons fa-regular fa-circle-user fa-lg"></i>
+              <i class="navbarIcons fa-regular fa-circle-user fa-lg navbarIcon"></i>
             </a>
           </div>
         </div>
       </div>
     </nav>
 
-  <!-- Breadcrumb -->
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Category Page</li>
-    </ol>
-  </nav>
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Category Page</li>
+      </ol>
+    </nav>
 
-  <!-- Logout Modal -->
-  <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to log out?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button id="confirmLogoutBtn" type="button" class="btn btn-danger">Logout</button>
+    <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">Are you sure you want to log out?</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button id="confirmLogoutBtn" type="button" class="btn btn-danger">Logout</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="container-fluid mt-4">
-    <div class="row">
-      <!-- Filtered Options -->
-      <div class="col-lg-3 col-md-4 mb-4">
-        <div class="filters">
-          <div>
-            <div class="d-flex justify-content-between align-items-center">
-              <p style="font-size: larger; font-weight: 500; padding-top: 8px">Filters</p>
-              <img src="Images/Frame.svg" alt="frame.svg" />
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <!-- Filtered Options -->
+        <div class="col-lg-3 col-md-4 mb-4">
+          <div class="filters">
+            <div>
+              <div class="d-flex justify-content-between align-items-center">
+                <p style="font-size: larger; font-weight: 500; padding-top: 8px">Filters</p>
+                <img src="Images/Frame.svg" alt="frame.svg" />
+              </div>
+
+              <hr />
+
+              <a href="#" class="text-decoration-none" onclick="passCategory('men')">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p id="filterCat">Men</p>
+                  <img src="Images/arrow.svg" />
+                </div>
+              </a>
+
+              <a href="#" class="text-decoration-none" onclick="passCategory('women')">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p id="filterCat">Women</p>
+                  <img src="Images/arrow.svg" />
+                </div>
+              </a>
+
+              <a href="#" class="text-decoration-none" onclick="passCategory('accessories')">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p id="filterCat">Accessories</p>
+                  <img src="Images/arrow.svg" />
+                </div>
+              </a>
+
+              <a href="#" class="text-decoration-none" onclick="passCategory('care')">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p id="filterCat">Care</p>
+                  <img src="Images/arrow.svg" />
+                </div>
+              </a>
+
+              <a href="#" class="text-decoration-none" onclick="passCategory('electronics')">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p id="filterCat">Electronics</p>
+                  <img src="Images/arrow.svg" />
+                </div>
+              </a>
+
+              <a href="#" class="text-decoration-none" onclick="passCategory('furniture')">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p id="filterCat">Furniture</p>
+                  <img src="Images/arrow.svg" />
+                </div>
+              </a>
+
+              <a href="#" class="text-decoration-none" onclick="passCategory('groceries')">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p id="filterCat">Groceries</p>
+                  <img src="Images/arrow.svg" />
+                </div>
+              </a>
+
+              <a href="#" class="text-decoration-none" onclick="passCategory('vehicles')">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p id="filterCat">Vehicles</p>
+                  <img src="Images/arrow.svg" />
+                </div>
+              </a>
             </div>
 
             <hr />
 
-            <a href="#" class="text-decoration-none" onclick="passCategory('men')">
-              <div class="d-flex justify-content-between align-items-center">
-                <p id="filterCat">Men</p>
-                <img src="Images/arrow.svg" />
-              </div>
-            </a>
-
-            <a href="#" class="text-decoration-none" onclick="passCategory('women')">
-              <div class="d-flex justify-content-between align-items-center">
-                <p id="filterCat">Women</p>
-                <img src="Images/arrow.svg" />
-              </div>
-            </a>
-
-            <a href="#" class="text-decoration-none" onclick="passCategory('accessories')">
-              <div class="d-flex justify-content-between align-items-center">
-                <p id="filterCat">Accessories</p>
-                <img src="Images/arrow.svg" />
-              </div>
-            </a>
-
-            <a href="#" class="text-decoration-none" onclick="passCategory('care')">
-              <div class="d-flex justify-content-between align-items-center">
-                <p id="filterCat">Care</p>
-                <img src="Images/arrow.svg" />
-              </div>
-            </a>
-
-            <a href="#" class="text-decoration-none" onclick="passCategory('electronics')">
-              <div class="d-flex justify-content-between align-items-center">
-                <p id="filterCat">Electronics</p>
-                <img src="Images/arrow.svg" />
-              </div>
-            </a>
-
-            <a href="#" class="text-decoration-none" onclick="passCategory('furniture')">
-              <div class="d-flex justify-content-between align-items-center">
-                <p id="filterCat">Furniture</p>
-                <img src="Images/arrow.svg" />
-              </div>
-            </a>
-
-            <a href="#" class="text-decoration-none" onclick="passCategory('groceries')">
-              <div class="d-flex justify-content-between align-items-center">
-                <p id="filterCat">Groceries</p>
-                <img src="Images/arrow.svg" />
-              </div>
-            </a>
-
-            <a href="#" class="text-decoration-none" onclick="passCategory('vehicles')">
-              <div class="d-flex justify-content-between align-items-center">
-                <p id="filterCat">Vehicles</p>
-                <img src="Images/arrow.svg" />
-              </div>
-            </a>
-          </div>
-
-          <hr />
-
-          <div class="range-slider">
-            <div class="slider-track"></div>
-            <div class="slider-range" id="slider-range"></div>
-            <input type="range" id="rangeMin" min="0" max="1000" value="100" />
-            <input type="range" id="rangeMax" min="0" max="1000" value="900" />
-          </div>
-
-          <div class="d-flex align-items-center">
-            <div>
-              <label class="form-label">Min Value</label>
-              <input type="text" class="form-control" id="minValDisplay" readonly />
+            <div class="range-slider">
+              <div class="slider-track"></div>
+              <div class="slider-range" id="slider-range"></div>
+              <input type="range" id="rangeMin" min="0" max="1000" value="100" />
+              <input type="range" id="rangeMax" min="0" max="1000" value="900" />
             </div>
-            <div>
-              <label class="form-label">Max Value</label>
-              <input type="text" class="form-control" id="maxValDisplay" readonly />
+
+            <div class="d-flex align-items-center">
+              <div>
+                <label class="form-label">Min Value</label>
+                <input type="text" class="form-control" id="minValDisplay" readonly />
+              </div>
+              <div>
+                <label class="form-label">Max Value</label>
+                <input type="text" class="form-control" id="maxValDisplay" readonly />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Filtered Products -->
-      <div class="col-lg-9 col-md-8">
-        <div id="filteredProducts" class="row"></div>
+        <!-- Filtered Products -->
+        <div class="col-lg-9 col-md-8">
+          <div id="filteredProducts" class="row"></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Dialog for Add to Cart -->
-  <div id="cart-dialog" class="alert text-center"
-    style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999"></div>
+    <!-- Dialog for Add to Cart -->
+    <div
+      id="cart-dialog"
+      class="alert text-center"
+      style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999"
+    ></div>
 
     <!-- Footer -->
     <footer id="contactUs" class="container-fluid">

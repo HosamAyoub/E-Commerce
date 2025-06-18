@@ -4,6 +4,7 @@
   --yellow-color: #ffc633;
   --gray-color1: #f0f0f0;
   --gray-color2: #909090;
+  --gray-color-text: #717070;
   --backround-color: var(--white-color);
 }
 
@@ -13,6 +14,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Navbar */
@@ -31,17 +33,29 @@ nav {
   font-size: 1.4vw;
 }
 
-.navbar-nav {
-  /* margin: 1vw; */
+.navbar-nav a {
+  text-decoration: none;
+  color: rgb(142, 141, 141);
+}
+
+.active {
+  border-bottom: 2.5px solid var(--black-color);
+  text-decoration: none;
+  text-align: center;
 }
 
 .searchButton {
-  width: 40vw;
+  width: 35vw;
   line-height: 2vw;
   padding: 0.3vw 3vw;
   font-size: 1.2vw;
   color: var(--gray-color2);
   background-color: var(--gray-color1);
+}
+
+.searchIcon:active {
+  border: none !important;
+  outline: none !important;
 }
 
 .searchButton:focus {
@@ -58,6 +72,71 @@ nav form button svg {
   color: var(--black-color);
   font-size: 2vw;
   margin: 1vw 0.5vw;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1em; /* Relative to font size */
+  top: 50%;
+  transform: translateY(-55%);
+  background: transparent !important;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em; /* Relative to input font size */
+}
+
+.searchButton {
+  font-size: clamp(1rem, 1.2vw, 1.25rem); /* Responsive font size */
+  padding: 0.25rem 1.5rem; /* Responsive padding */
+  padding-left: 2.8rem !important; /* Space for icon */
+}
+
+.fa-magnifying-glass {
+  font-size: 1.1rem; /* Inherits from searchIcon */
+}
+
+/* Optional: Hover effects */
+.searchIcon:hover .fa-magnifying-glass {
+  color: var(--black-color);
+}
+@media screen and (max-width: 992px) {
+  .active {
+    border-bottom: none;
+    text-decoration: none;
+    text-align: center;
+  }
+  /* .searchIcon {
+    position: absolute;
+    top: 0.01vw;
+    left: 1vw;
+  } */
+  .searchButton {
+    font-size: clamp(0.6rem, 0.8vw, 0.9rem); /* Responsive font size */
+    padding: 0.1rem 0.4rem; /* Responsive padding */
+    padding-left: 2rem !important; /* Space for icon */
+  }
+
+  .searchIcon {
+    position: absolute;
+    left: 0.75rem; /* Relative to font size */
+    top: 50%;
+    transform: translateY(-55%);
+    background: transparent !important;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem; /* Relative to input font size */
+  }
+
+  .fa-magnifying-glass {
+    font-size: 0.8rem; /* Inherits from searchIcon */
+  }
+  .navbar-nav .nav-item a {
+    font-size: 1rem;
+  }
+  .navbarIcon {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+  }
 }
 
 /*  */
@@ -254,4 +333,3 @@ footer svg {
   border-color: var(--black-color);
   box-shadow: none;
 }
-
