@@ -34,8 +34,8 @@ async function fetchData() {
       return product;
   });
   products = data.products.filter((product) => product.images.length > 2);
-  displayProducts(8, products, "newArrivalCards");
-  displayProducts(8, products, "topSellingCards");
+  displayProducts(10, products, "newArrivalCards");
+  displayProducts(10, products, "topSellingCards");
   getTopReviews();
   topReviewsList = convertDate(topReviewsList);
   // console.log(topReviewsList);
@@ -263,11 +263,11 @@ function convertDate(reviews) {
 const newArrival = document.getElementById("viewAllNewArrival");
 const topSelling = document.getElementById("viewTopSelling");
 newArrival.addEventListener("click", function () {
-  displayProducts(8, products, "newArrivalCards");
+  displayProducts(10, products, "newArrivalCards");
   newArrival.style.display = "none";
 });
 topSelling.addEventListener("click", function () {
-  displayProducts(8, products, "topSellingCards");
+  displayProducts(10, products, "topSellingCards");
   topSelling.style.display = "none";
 });
 
